@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+.game-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.game-image {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.showEnvelope {
+    position: absolute;
+    top: 50%;
+    left: 76%;
+    width: 5%;
+    height: 10%;
+    cursor: pointer;
+    /* background: rgba(255, 255, 255, 0.1); */
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background: rgba(0, 0, 0, 0.8); */
+    /* padding: 20px; */
+    border-radius: 8px;
+    text-align: center;
+}
+.popup img {
+    max-width: 30%;
+    height: auto;
+    transform: rotate(-9deg);
+
+}
+.close-btn {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.banana-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Optional: Adds a dim background */
+    z-index: 9999;
+    display: none; /* Initially hidden */
+}
+
+#base64Image {
+    max-width: 80%;
+    max-height: 80%;
+    /* border: 5px solid white; */
+    border-radius: 10px;
+    padding: 127px;
+}
+
+
