@@ -1,71 +1,106 @@
-$(document).ready(function () {});
+$(document).ready(function () {
+
+    let canvasElement = document.querySelector(".banana-canvas");
+    let notificationBar = document.getElementById("notification-bar");
+    let answer = null;
+    
+    document.getElementById("puzzel-popup").addEventListener("click", function (event) {
+        event.stopPropagation();
+    });
+
+    $(document).on("click", ".showEnvelope", function (e) {
+        showPopup();
+    });
+
+    document.body.addEventListener("click", function (event) {
+
+        let popup = document.getElementById("puzzel-popup");
+        let bananaCanvas = document.getElementById("banana-canvas");
+        let paper = document.querySelector(".showEnvelope"); 
+        let keyboardBox = document.getElementById("key-board");
+    
+        if (
+            event.target !== popup.querySelector("img") &&
+            event.target !== paper &&
+            event.target !== bananaCanvas.querySelector("img") &&
+            !keyboardBox.contains(event.target)
+        ) {
+            hidePopup();
+        }
+    });
+
+    document.getElementById("puzzel").addEventListener("click", function (e) {
+                
+        let loaderElement = document.querySelector(".loader");
+        let imageElement = document.getElementById("base64Image");
+        let keyboard = document.querySelector(".key-board");
+
+        $.ajax({
+            type: "GET",
+            url: "/puzzel",
+            beforeSend: function () {
+                canvasElement.style.display = "flex"; 
+                loaderElement.style.display = "block"; 
+                imageElement.style.display = "none"; 
+                keyboard.style.display = "none";
+            },
+            success: function (response) {
+    
+                let base64String = response.question;
+                answer = response.solution;
+                console.log("solution key:", answer); 
+                imageElement.src = "data:image/png;base64," + base64String;
+                loaderElement.style.display = "none";
+                imageElement.style.display = "block";
+                keyboard.style.display = "block";
+            },
+            error: function (xhr, status, error) {
+                toastr.error('@lang("messages.something_went_wrong")');
+            },
+        });
+    });
+
+    document.querySelectorAll(".key").forEach(key => {
+        key.addEventListener("click", function() {
+            let keyValue = this.textContent; 
+            console.log("Clicked key:", keyValue); 
+            console.log("solution key:", answer); 
+
+            if(keyValue == answer){
+
+                let takiOverlay = document.getElementById("taki-overlay");
+                
+                hidePopup();
+    
+                takiOverlay.style.opacity = "1";
+                takiOverlay.style.visibility = "visible";
+        
+                setTimeout(() => {
+                    takiOverlay.style.opacity = "0";
+                    takiOverlay.style.visibility = "hidden";
+                }, 2000);
+
+            }else{
+                notificationBar.style.top = "10px"; 
+
+            setTimeout(() => {
+                notificationBar.style.top = "-50px";
+            }, 2000);
+            }
+        });
+    });
+
+    
+});
 
 function showPopup() {
-    document.getElementById("popup").style.display = "block";
+    document.getElementById("puzzel-popup").style.display = "block";
 }
 
 function hidePopup() {
-    document.getElementById("popup").style.display = "none";
+    document.getElementById("puzzel-popup").style.display = "none";
     document.getElementById("banana-canvas").style.display = "none";
 }
-
-document.body.addEventListener("click", function (event) {
-
-    let popup = document.getElementById("popup");
-    let bananaCanvas = document.getElementById("banana-canvas");
-    let paper = document.querySelector(".showEnvelope"); 
-    let keyboardBox = document.getElementById("key-board");
-
-    if (
-        event.target !== popup.querySelector("img") &&
-        event.target !== paper &&
-        event.target !== bananaCanvas.querySelector(".key-board")
-    ) {
-        hidePopup();
-    }
-});
-
-document.getElementById("popup").addEventListener("click", function (event) {
-    event.stopPropagation();
-});
-
-$(document).on("click", ".showEnvelope", function (e) {
-    showPopup();
-});
-
-document.getElementById("puzzel").addEventListener("click", function (e) {
-    $.ajax({
-        type: "GET",
-        url: "/puzzel",
-        beforeSend: function () {
-          
-            let canvasElement = document.querySelector(".banana-canvas");
-            let loaderElement = document.querySelector(".loader");
-            let imageElement = document.getElementById("base64Image");
-            let keyboard = document.querySelector(".key-board");
-
-            canvasElement.style.display = "flex"; 
-            loaderElement.style.display = "block"; 
-            imageElement.style.display = "none"; 
-            keyboard.style.display = "none";
-        },
-        success: function (response) {
-
-            let base64String = response.question;
-            let imageElement = document.getElementById("base64Image");
-            let loaderElement = document.querySelector(".loader");
-            let keyboard = document.querySelector(".key-board");
-
-            imageElement.src = "data:image/png;base64," + base64String;
-            loaderElement.style.display = "none";
-            imageElement.style.display = "block";
-            keyboard.style.display = "block";
-        },
-        error: function (xhr, status, error) {
-            toastr.error('@lang("messages.something_went_wrong")');
-        },
-    });
-});
 
 function hideCanvas(event) {
     let canvasElement = document.querySelector(".banana-canvas");
@@ -73,3 +108,5 @@ function hideCanvas(event) {
         canvasElement.style.display = "none";
     }
 }
+
+

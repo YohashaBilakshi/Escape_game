@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - Claymorphism Keyboard</title>
-  <link rel='stylesheet' href='https://unpkg.com/claymorphism-css/dist/clay.css'><link rel="stylesheet" href="./style.css">
+  <link rel='stylesheet' href='https://unpkg.com/claymorphism-css/dist/clay.css'>
+  <!-- <link rel="stylesheet" href="./style.css"> -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;600&display=swap');
 body{
@@ -26,7 +27,7 @@ body{
   transform: translate(-50%,-50%);
 }
 .row{
-  padding:0;
+  padding:5px;
   list-style-type:none;
   display:flex;
   justify-content: space-evenly;
@@ -175,7 +176,6 @@ footer a{
 <!-- partial:index.partial.html -->
 <div id="keyboard-box" class="keyboard">
   <ul class="row">
-    <!-- <li class="key clay" id="esc">☘️</li> -->
     <li class="key clay">1</li>
     <li class="key clay">2</li>
     <li class="key clay">3</li>
@@ -190,23 +190,19 @@ footer a{
     <!-- <li class="key clay">=</li> -->
     <!-- <li class="key clay" id="del">🗑️</li> -->
   </ul>
-  <!-- <ul class="row">
-    <li class="key clay" id="tab">🦃</li>
-    <li class="key clay">Q</li>
-    <li class="key clay">W</li>
-    <li class="key clay">E</li>
-    <li class="key clay">R</li>
+  <ul class="row">
+    <li class="key clay">A</li>
+    <li class="key clay">C</li>
     <li class="key clay">T</li>
-    <li class="key clay">Y</li>
-    <li class="key clay">U</li>
+    <li class="key clay">M</li>
+    <li class="key clay">S</li>
     <li class="key clay">I</li>
+    <li class="key clay">U</li>
+    <li class="key clay">K</li>
     <li class="key clay">O</li>
     <li class="key clay">P</li>
-    <li class="key clay">{</li>
-    <li class="key clay">}</li>
-    <li class="key clay" id="slash">\</li>
   </ul>
-  <ul class="row">
+  <!--<ul class="row">
     <li class="key clay" id="caps">🎓</li>
     <li class="key clay">A</li>
     <li class="key clay">S</li>
@@ -256,4 +252,8 @@ footer a{
   <script src='https://unpkg.com/react@17/umd/react.development.js'></script>
 <script src='https://unpkg.com/react-dom@17/umd/react-dom.development.js'></script>
 </body>
+
+<script>
+
+</script>
 </html>

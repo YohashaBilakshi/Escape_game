@@ -3,7 +3,7 @@
 .loader {
     width: 40px;
     aspect-ratio: 1;
-    color: #5e82c1;
+    color: #8d6432;
     position: relative;
     background: radial-gradient(10px, currentColor 94%, #0000);
 }
@@ -20,7 +20,7 @@
         radial-gradient(9px at top left, #0000 94%, currentColor) bottom right;
     background-size: 20px 20px;
     background-repeat: no-repeat;
-    animation: l18 1.5s infinite cubic-bezier(0.3, 1, 0, 1);
+    animation: l18 2s infinite cubic-bezier(0.3, 1, 0, 1);
 }
 
 @keyframes l18 {
@@ -42,12 +42,81 @@
 
 .bottom-bar {
     position: absolute;
-    bottom: -41px;
+    bottom: -19px;
     width: 100%;
     background: rgba(0, 0, 0, 0.8);
     color: white;
-    text-align: center;
+    /* text-align: center; */
     padding: 10px 0;
     font-size: 14px;
     height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: white;
 }
+
+#demo {
+    text-align: left;
+    flex: 1;
+}
+
+#score {
+    text-align: center;
+    flex: 1;
+}
+
+#usename {
+    text-align: right;
+    flex: 1;
+}
+
+.notification-bar {
+    position: fixed;
+    top: -50px; /* Initially hidden above screen */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: top 0.5s ease-in-out;
+    z-index: 9999;
+}
+
+
+
+/* HTML: <div class="loader"></div> */
+/* HTML: <div class="loader"></div> */
+.loader-timer {
+    width: 65px;
+    aspect-ratio: 1;
+    position: relative;
+  }
+  .loader-timer:before,
+  .loader-timer:after {
+    content: "";
+    position: absolute;
+    inset: 0 auto auto 0;
+    aspect-ratio: 1;
+    border-radius: 50px;
+    box-shadow: 0 0 0 3px inset #fff;
+    animation: l5 1s infinite linear alternate;
+  }
+  .loader-timer:after {
+    inset: auto 0 0 auto;
+    animation-delay: -1s;
+  }
+  @keyframes l5 {
+    0% {
+      width: 20px;
+    }
+    100% {
+      width: 50px;
+    }
+  }
