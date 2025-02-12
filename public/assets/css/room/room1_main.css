@@ -34,8 +34,8 @@ body {
 .popup {
     display: none;
     position: fixed;
-    top: 50%;
-    left: 50%;
+    top: 51.2%;
+    left: 50.7%;
     transform: translate(-50%, -50%);
     /* background: rgba(0, 0, 0, 0.8); */
     /* padding: 20px; */
@@ -71,11 +71,70 @@ body {
 }
 
 #base64Image {
-    max-width: 80%;
+    max-width: 93%;
     max-height: 80%;
     /* border: 5px solid white; */
     border-radius: 10px;
-    padding: 127px;
+    padding: 131px;
+    border-radius: 10px; /* Optional: For rounded corners */
+    /* box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.5); */
 }
+
+/* laptop */
+
+.showLaptop {
+    position: absolute;
+    top: 47%;
+    left: 57%;
+    width: 12%;
+    height: 15%;
+    cursor: pointer;
+}
+
+/*  password */
+
+.taki-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7); /* Dark blur effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px); /* Blur effect */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 10000;
+}
+
+.taki-text {
+    font-size: 4rem;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+    animation: fadeInScale 0.5s ease-in-out forwards;
+}
+
+/* Keyframe animation for the "TAKI" effect */
+@keyframes fadeInScale {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* Hide overlay after animation */
+.taki-overlay.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
 
 
