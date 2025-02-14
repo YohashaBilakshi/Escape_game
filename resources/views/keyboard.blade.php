@@ -23,7 +23,7 @@ body{
   width: 850px;
   position: absolute;
   left: 50%;
-  top:83%;
+  top: 75%;;
   transform: translate(-50%,-50%);
 }
 .row{
@@ -40,8 +40,8 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  width:50px;
-  height:50px;
+  width: 37px;
+    height: 31px;
   --clay-background:#ebebeb;
   --clay-border-radius: 15px;
  }

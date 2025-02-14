@@ -31,11 +31,12 @@ body {
     cursor: pointer;
     /* background: rgba(255, 255, 255, 0.1); */
 }
+
 .popup {
     display: none;
     position: fixed;
-    top: 51.2%;
-    left: 50.7%;
+    top: 33.2%;
+    left: 77.7%;
     transform: translate(-50%, -50%);
     /* background: rgba(0, 0, 0, 0.8); */
     /* padding: 20px; */
@@ -45,8 +46,23 @@ body {
 .popup img {
     max-width: 30%;
     height: auto;
-    transform: rotate(-9deg);
+    /* transform: rotate(-9deg); */
+    width: 800px;
+    height: 123px;
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
 
+.popup {
+    animation: fadeOut 2s ease-in forwards;
+    animation-delay: 2s;
 }
 .close-btn {
     margin-top: 10px;
@@ -75,10 +91,62 @@ body {
     max-height: 80%;
     /* border: 5px solid white; */
     border-radius: 10px;
-    padding: 131px;
-    border-radius: 10px; /* Optional: For rounded corners */
+    /* padding: 131px; */
+    border-radius: 10px;
     /* box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.5); */
+    margin-left: 35%;
+    height: 121%;
+    position: relative;
+    margin-top: 4%;
+    width: 28%;
 }
+
+/* Laptop screen container */
+.lap-screen {
+    position: absolute;
+    top: 34%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    width: 21%;
+    height: 28%;
+    background-color: linear-gradient(145deg, #121212, #1e1e1e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 4%;
+    margin-top: 2%;
+    box-shadow: 5px 5px 15px #000, -5px -5px 15px #333;
+    border: 2px solid #2e2e2e;
+}
+
+/* Password input boxes */
+.lap-screen input {
+    width: 45px;
+    height: 45px;
+    margin: 0 14px;
+    font-size: 24px;
+    text-align: center;
+    border: none;
+    background: linear-gradient(145deg, #0b0b0b, #1a1a1a);
+    color: #0ff;
+    outline: none;
+    border-radius: 8px;
+    /* padding: 6px; */
+    box-shadow: inset 4px 4px 8px #111, inset -4px -4px 8px #333;
+    transition: all 0.3s ease-in-out;
+}
+.lap-screen input:focus {
+    background: #000;
+    color: #00e5ff;
+    box-shadow: 0 0 15px #00e5ff;
+}
+
+.lap-screen input:hover {
+    transform: scale(1.1);
+}
+/* 
 
 /* laptop */
 
@@ -91,6 +159,87 @@ body {
     cursor: pointer;
 }
 
+.showPasscode {
+    position: absolute;
+    top: 41%;
+    left: 23%;
+    width: 8%;
+    height: 14%;
+    cursor: pointer;
+    /* background-color: aliceblue; */
+}
+
+.passcode-view {
+    position: fixed;
+    top: 35%;
+    height: 22vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    background: linear-gradient(145deg, #1e1e1e, #292929);
+    padding: 20px;
+    border-radius: 12px;
+    width: 220px;
+
+    display: none;
+    box-shadow: 5px 5px 10px #111, -5px -5px 10px #333;
+    border: 2px solid #444;
+    transform: perspective(800px) rotateX(10deg);
+}
+
+/* Input Fields */
+.lock-display {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.digit-input {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #0ff;
+    background: linear-gradient(145deg, #222, #333);
+    border: none;
+    border-radius: 8px;
+    box-shadow: inset 4px 4px 6px #111, inset -4px -4px 6px #444;
+    transition: all 0.2s ease-in-out;
+}
+
+.digit-input:focus {
+    outline: none;
+    background: #000;
+    color: #0ff;
+    box-shadow: 0 0 10px #0ff;
+}
+
+/* Unlock Button */
+.unlock-btn {
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(145deg, #00bcd4, #008ba3);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px #004d61, -2px -2px 5px #00e5ff;
+    transition: all 0.2s ease-in-out;
+}
+
+.unlock-btn:hover {
+    background: #00e5ff;
+    box-shadow: 0 0 15px #00e5ff;
+}
+
+.unlock-btn:active {
+    transform: scale(0.95);
+}
 /*  password */
 
 .taki-overlay {
@@ -136,5 +285,11 @@ body {
     visibility: hidden;
 }
 
-
-
+@media (min-width: 2000px) {
+    .lap-screen {
+        top: 32.5%;
+        left: 45%;
+        width: 21%;
+        height: 27.5%;
+    }
+}
