@@ -28,6 +28,7 @@
             <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
           </div>
         </fieldset>
+        
 		<div class="flex items-center justify-end mt-4">
 			@if (Route::has('password.request'))
 				<a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
@@ -46,33 +47,39 @@
 	  <img src="/assets/img/sign_up.png" alt="">
         <span class="underline"></span>
       </button>
-      <form class="form form-signup">
+
+      <form class="form form-signup" method="POST" action="{{ route('register') }}">
+            @csrf
+      <x-validation-errors class="mb-4" />
+
         <fieldset>
           <legend>Please, enter your email, password and password confirmation for sign up.</legend>
           <div class="input-block">
             <label for="signup-email"><img src="/assets/img/email_text.png" alt=""></label>
-            <input id="signup-email" type="email" required>
-          </div>
+            <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            </div>
+          <div class="input-block">
+            <label for="signup-email"><img src="/assets/img/email_text.png" alt=""></label>
+            <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            </div>
           <div class="input-block">
             <label for="signup-password"><img src="/assets/img/pass_txt.png" alt=""></label>
-            <input id="signup-password" type="password" required>
-          </div>
+            <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+            </div>
           <div class="input-block">
             <label for="signup-password-confirm"><img src="/assets/img/confirm_pass_txt.png" alt=""></label>
-            <input id="signup-password-confirm" type="password" required>
-          </div>
+            <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+            </div>
         </fieldset>
-		<div class="flex items-center justify-end mt-4">
-			@if (Route::has('password.request'))
-				<a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-					{{ __('Forgot your password?') }}
-				</a>
-			@endif
+        <div class="flex items-center justify-end mt-4">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+                    {{ __('Already registered?') }}
+                </a>
 
-			<button type="submit" class="btn-signup ml-4">
-				<img src="/assets/img/sign_up_txt.png" alt="">
-			</button>
-		</div>      
+                <x-button class="ml-4">
+                    {{ __('Register') }}
+                </x-button>
+            </div>
 	</form>
     </div>
   </div>

@@ -32,7 +32,7 @@ body {
 .forms {
 	display: flex;
 	align-items: flex-start;
-	margin-top: 30px;
+	/* margin-top: 30px; */
     /* width: 500px;/ */
 }
 
@@ -42,6 +42,10 @@ body {
 
 .form-wrapper.is-active {
 	animation: showLayer .3s ease-in forwards;
+}
+
+.form-signup{
+    height: 450px;
 }
 
 @keyframes showLayer {
@@ -247,7 +251,7 @@ body {
 }
 
 .input-block {
-	margin-bottom: 20px;
+	/* margin-bottom: 20px; */
 }
 
 .input-block label {

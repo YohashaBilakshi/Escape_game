@@ -67,6 +67,14 @@
     </div>
 
     <div class="bottom-bar">
+    <form method="POST" action="{{ route('logout') }}" x-data>
+                                @csrf
+
+                                <x-dropdown-link href="{{ route('logout') }}"
+                                         @click.prevent="$root.submit();">
+                                    {{ __('Log Out') }}
+                                </x-dropdown-link>
+                            </form>
         <p id="demo"></p>
         <div class="loader-timer"></div>
         <p id="score"> High Score : 1m 30s</p>

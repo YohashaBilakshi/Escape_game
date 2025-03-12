@@ -15,9 +15,11 @@ use App\Http\Controllers\GameController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login1');
 });
-
+Route::get('/aa', function () {
+    return view('auth.login1');
+});
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
