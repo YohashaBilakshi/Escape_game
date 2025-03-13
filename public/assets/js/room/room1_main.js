@@ -3,7 +3,7 @@ $(document).ready(function () {
     let loaderElement = document.querySelector(".loader");
     let notificationBar = document.getElementById("notification-bar");
 
-    let answer = null;
+    let answer = -1;
 
     loaderElement.style.display = "none";
 
@@ -84,46 +84,37 @@ $(document).ready(function () {
             .map((input) => input.value)
             .join("");
         if (enteredPassword === "TAKI") {
-            // Set the background image of .lap-screen and adjust its size
-
-            // let imageElement = document.getElementById("base64Image");
-            // let keyboard = document.querySelector(".key-board");
             const inputs = document.querySelectorAll("input");
             inputs.forEach((input) => (input.style.display = "none"));
             document.getElementById("key-board").style.display = "none";
             let lapsSreen = document.querySelector(".lap-screen");
+            
 
             $.ajax({
                 type: "GET",
                 url: "/puzzel",
                 beforeSend: function () {
-                    // canvasElement.style.display = "flex";
-
                     loaderElement.style.display = "block";
-                    lapsSreen.style.top = "40%";
-                    // keyboard.style.display = "none";
+                    document.querySelectorAll("#digit-a, #digit-b, #digit-c").forEach(el => el.style.display = "block");                    
+                    lapsSreen.style.top = "35%";                    
+                    // document.getElementById("lock-display").style.display = "block";
+
                 },
                 success: function (response) {
                     let base64String = response.question;
                     answer = response.solution;
                     console.log("solution key:", answer);
                     imagePuzzle = "data:image/png;base64," + base64String;
-                    lapsSreen.style.top = "34%";
-
-                    console.log(base64String);
-                    // document.querySelector(".loader").style.display = "none";
-                    // document.querySelector(".lap-screen")./
-
+                    lapsSreen.style.top = "30%";
                     loaderElement.style.display = "none";
-                    // imageElement.style.display = "block";
-                    // keyboard.style.display = "block";
 
                     const lapScreen = document.querySelector(".lap-screen");
                     lapScreen.style.backgroundImage =
                         'url("data:image/png;base64,' + base64String + '")';
-                    lapScreen.style.backgroundSize = "contain"; // This will make sure the entire image is visible within the box
-                    lapScreen.style.backgroundPosition = "center"; // Centers the image
-                    lapScreen.style.backgroundRepeat = "no-repeat"; // Prevents repeating the image if the box is larger than the image
+                    lapScreen.style.backgroundSize = "contain";
+                    lapScreen.style.backgroundPosition = "center"; 
+                    lapScreen.style.backgroundRepeat = "no-repeat"; 
+
                 },
                 error: function (xhr, status, error) {
                     toastr.error('@lang("messages.something_went_wrong")');
@@ -144,6 +135,40 @@ $(document).ready(function () {
         inputs.forEach((input) => (input.value = ""));
         currentIndex = 0;
     }
+
+    
+    $(document).on("click", ".unlock-btn", function (e) {
+        let code =
+            document.getElementById("digit-a").value +
+            document.getElementById("digit-b").value +
+            document.getElementById("digit-c").value;
+
+            let pass = 27;
+            pass = `${pass}${answer}`;
+            let finalPass = Number(pass)
+
+            if( code == finalPass ){
+                const imagePath = "assets/img/rooms/room1/room_1_open.png";
+                const lapScreen = document.querySelector(".game-image");
+                lapScreen.src = imagePath;
+                const passcode = document.querySelector(".passcode-view");
+                const spark = document.querySelector(".sparckls");
+                spark.style.display = "inline-block";
+                passcode.style.display = "none";
+                let backgroundAudio = document.getElementById("my_audio");
+                if (backgroundAudio) {
+                    backgroundAudio.pause();
+                    backgroundAudio.currentTime = 0; // Reset audio to start
+                }
+
+                // let sparksAudio = new Audio("/assets/sounds/sparks.mp3");
+                // sparksAudio.play();
+                // spark.style.display = "inline-block";
+                // passcode.style.display = "none";
+                        }
+
+    });
+
 });
 
 function showPopup() {
@@ -156,6 +181,7 @@ function hidePopup() {
     document.getElementById("puzzel-popup").style.display = "none";
     document.getElementById("banana-canvas").style.display = "none";
     document.getElementById("passcode-view").style.display = "none";
+    // document.getElementById("lock-display").style.display = "block";
 }
 
 function hideCanvas(event) {
@@ -168,19 +194,4 @@ function moveNext(current, nextId) {
     if (current.value.length === 1 && nextId) {
         document.getElementById(nextId).focus();
     }
-}
-
-function submitCode() {
-    let code =
-        document.getElementById("digit-1").value +
-        document.getElementById("digit-2").value +
-        document.getElementById("digit-3").value;
-
-    const imagePath = "assets/img/rooms/room1/room_1_open.png";
-
-    // Change the image source
-    const lapScreen = document.querySelector(".game-image");
-    lapScreen.src = imagePath;
-
-    alert("Entered Code: " + code);
 }
