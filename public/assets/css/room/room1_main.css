@@ -97,8 +97,9 @@ body {
     margin-left: 35%;
     height: 121%;
     position: relative;
-    margin-top: 4%;
-    width: 28%;
+    margin-top: -1%;
+    width: 36%;
+    left: -4%;
 }
 
 /* Laptop screen container */
@@ -107,8 +108,8 @@ body {
     top: 30%;
     left: 45%;
     transform: translate(-50%, -50%);
-    width: 21%;
-    height: 26%;
+    width: 28%;
+    height: 34%;
     background-color: linear-gradient(145deg, #121212, #1e1e1e);
     display: flex;
     justify-content: center;
@@ -181,12 +182,13 @@ body {
     background: linear-gradient(145deg, #1e1e1e, #292929);
     padding: 20px;
     border-radius: 12px;
-    width: 220px;
-
+    /* width: 220px; */
     display: none;
-    box-shadow: 5px 5px 10px #111, -5px -5px 10px #333;
+    /* box-shadow: 5px 5px 10px #111, -5px -5px 10px #333; */
     border: 2px solid #444;
     transform: perspective(800px) rotateX(10deg);
+    align-content: center;
+    left: 26%;
 }
 
 /* Input Fields */
@@ -216,10 +218,12 @@ body {
     color: #0ff;
     box-shadow: 0 0 10px #0ff;
 }
-
+.digit-input {
+    display: block; /* Hide all inputs initially */
+}
 /* Unlock Button */
 .unlock-btn {
-    width: 100px;
+    width: 102px;
     height: 40px;
     font-size: 18px;
     font-weight: bold;
@@ -228,8 +232,9 @@ body {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    box-shadow: 2px 2px 5px #004d61, -2px -2px 5px #00e5ff;
+    /* box-shadow: 2px 2px 5px #004d61, -2px -2px 5px #00e5ff; */
     transition: all 0.2s ease-in-out;
+    margin-left: 35px;
 }
 
 .unlock-btn:hover {
