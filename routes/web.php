@@ -18,7 +18,10 @@ Route::get('/', function () {
     return view('auth.login1');
 });
 Route::get('/aa', function () {
-    return view('auth.login1');
+    return view('ff');
+});
+Route::get('/showGameRoom', function () {
+    return view('room.room_1');
 });
 Route::middleware([
     'auth:sanctum',
@@ -30,4 +33,5 @@ Route::middleware([
     })->name('dashboard');
 
     Route::get('/puzzel', [GameController::class, 'getPuzzel'])->name('getPuzzel');
+    Route::get('/escape-game', [GameController::class, 'showGameRoom'])->name('showGameRoom');
 });
