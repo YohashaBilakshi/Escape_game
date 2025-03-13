@@ -1,0 +1,26 @@
+
+html, body { height: 100%; }
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: -webkit-radial-gradient(
+    center top, circle farthest-corner,
+    #FFF 0%, #D8DFE9 100%);
+  background-image: radial-gradient(
+    circle farthest-corner at center top,
+    #FFF 0%, #D8DFE9 100%);
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: icon;
+  src: url('https://bennettfeely.com/fonts/icons.woff');
+}
+
+@include flip-cover("dribbble", "d", #FC1786);
+@include flip-cover("twiter", "t", #2EC8FA);
+@include flip-cover("linkedin", "in", #2672ae);
+@include flip-cover("email", "g", #f80);

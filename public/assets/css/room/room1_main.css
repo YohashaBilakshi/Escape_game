@@ -104,11 +104,11 @@ body {
 /* Laptop screen container */
 .lap-screen {
     position: absolute;
-    top: 34%;
+    top: 30%;
     left: 45%;
     transform: translate(-50%, -50%);
     width: 21%;
-    height: 28%;
+    height: 26%;
     background-color: linear-gradient(145deg, #121212, #1e1e1e);
     display: flex;
     justify-content: center;

@@ -23,4 +23,9 @@ class GameController extends Controller
             return response()->json(['error' => 'Something went wrong', 'message' => $e->getMessage()], 500);
         }
     }
+
+    public function showGameRoom()  {
+
+        return view('room.room_1');
+    }
 }
