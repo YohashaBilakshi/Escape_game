@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('auth.login1');
 });
 Route::get('/aa', function () {
-    return view('navigation-menu');
+    return view('history');
 });
 Route::get('/showGameRoom', function () {
     return view('room.room_1');

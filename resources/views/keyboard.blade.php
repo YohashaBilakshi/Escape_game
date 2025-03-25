@@ -44,6 +44,8 @@ body{
     height: 31px;
   --clay-background:#ebebeb;
   --clay-border-radius: 15px;
+  background: #ebebeb;
+  border-radius: 10px;
  }
 .key:hover{
   cursor:pointer;
