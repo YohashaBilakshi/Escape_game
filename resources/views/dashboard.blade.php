@@ -31,6 +31,18 @@
     cursor: pointer;
     margin-top: 10px;
   }
+
+  .popup-content-history {
+    position: relative;
+    background-image: url(/assets/img/home/history.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 600px;
+    height: 500px;
+    left: 32%;
+    top: 11%;
+}
 </style>
 
 <body>
@@ -91,25 +103,38 @@
   <div class="popup-overlay" id="gameInfoPopup">
     <div class="popup-content"></div>
 </div>
+<div class="popup-overlay" id="gameHistoryPopup">
+    <div class="popup-content-history">
+    @include('history')
+    </div>
+</div>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script>
-    $('input').on('change', function() {
-      $('body').toggleClass('blue');
-    });
-
-    // const historyBtn = document.querySelector('.menu-btn.history');
-    // const popupOverlay = document.getElementById('gameInfoPopup');
-
+    
     $(document).ready(function () {
         $(".menu-btn.help").click(function () {
             $("#gameInfoPopup").fadeIn();
         });
 
-        // Close when clicking outside the popup-content
         $("#gameInfoPopup").click(function (event) {
             if (!$(event.target).closest(".popup-content").length) {
                 $("#gameInfoPopup").fadeOut();
             }
+        });
+
+        $(".menu-btn.history").click(function () {
+            $("#gameHistoryPopup").fadeIn();
+        });
+
+        $("#gameHistoryPopup").click(function (event) {
+            if (!$(event.target).closest(".popup-content-history").length) {
+                $("#gameHistoryPopup").fadeOut();
+            }
+        });
+
+
+        $('input').on('change', function() {
+          $('body').toggleClass('blue');
         });
     });
 

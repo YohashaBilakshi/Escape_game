@@ -25,14 +25,7 @@
 
         <div class="game-container">
             <img class="game-image" src="assets/img/rooms/room1/room_1.png" alt="Room Image">
-            <img class="sparckls" style="osition: absolute;
-        transform: translate(-50%, -50%);
-    width: 34%;
-    /* height: auto; */
-    pointer-events: none;
-    margin-left: 33%;
-    margin-top: -44%;
-    display: none" src="assets/img/rooms/room1/clip-sparkling.gif" alt="">
+            <img class="sparckls" style="position: absolute; transform: translate(-50%, -50%); width: 34%; /* height: auto; */ pointer-events: none; margin-left: 33%; margin-top: -44%; display: none" src="assets/img/rooms/room1/clip-sparkling.gif" alt="">
             <div class="showEnvelope"></div>
             <div class="showLaptop"></div>
             <div class="showPasscode"></div>
@@ -40,9 +33,9 @@
 
         <div id="passcode-view" class="passcode-view">
             <div class="lock-display" id="lock-display">
-                <input type="number" class="digit-input" maxlength="1" id="digit-a" min="0" oninput="moveNext(this, 'digit-2')" />
-                <input type="number" class="digit-input" maxlength="1" id="digit-b" min="0" oninput="moveNext(this, 'digit-3')" />
-                <input type="number" class="digit-input" maxlength="1" id="digit-c" min="0" oninput="moveNext(this, null)" />
+                <input type="number" class="digit-input" maxlength="1" id="digit-a" min="0" placeholder="🍏" oninput="moveNext(this, 'digit-2')" />
+                <input type="number" class="digit-input" maxlength="1" id="digit-b" min="0" placeholder="🍓" oninput="moveNext(this, 'digit-3')" />
+                <input type="number" class="digit-input" maxlength="1" id="digit-c" min="0" placeholder="🍌" oninput="moveNext(this, null)" />
             </div>
             <button class="unlock-btn"> 🔒Enter</button>
         </div>
