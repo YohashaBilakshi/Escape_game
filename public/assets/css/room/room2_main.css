@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+.game-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.game-image {
+    width: 100%;
+    height: 571px;
+    object-fit: fill;
+}
+.game-container-main{
+    margin-left: -99%;
+}
+.showPaper{
+    position: absolute;
+    top: 73%;
+    left: 14%;
+    width: 5%;
+    height: 10%;
+    cursor: pointer;
+    /* background: rgb(207 22 22) */
+}
