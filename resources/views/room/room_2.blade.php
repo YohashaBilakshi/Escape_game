@@ -18,7 +18,7 @@
 
     <div class="game-container-main" style="width: 1100px; margin-top: 3%;">
 
-        
+
         <audio id="my_audio" src="assets/sounds/game_background.mp3" loop muted></audio>
 
         <div id="notification-bar" class="notification-bar"> <i class="fa-solid fa-rotate-right"></i> Try Again!</div>
@@ -26,27 +26,25 @@
         <div class="game-container">
             <img class="game-image" src="assets/img/rooms/room2/room_2.png" alt="Room Image">
             <img class="sparckls" style="position: absolute; transform: translate(-50%, -50%); width: 34%; /* height: auto; */ pointer-events: none; margin-left: 33%; margin-top: -44%; display: none" src="assets/img/rooms/room1/clip-sparkling.gif" alt="">
-          
+
         </div>
 
-            <div class="showColorPalate"></div>
-            <div class="showPasscode"></div>
-        </div>
+    </div>
+<!-- chs -->
+    <div class="bottom-bar">
+        <form method="POST" action="{{ route('logout') }}" x-data>
+            @csrf
 
-        <div class="bottom-bar">
-            <form method="POST" action="{{ route('logout') }}" x-data>
-                @csrf
-
-                <x-dropdown-link href="{{ route('logout') }}"
-                    @click.prevent="$root.submit();">
-                    {{ __('Log Out') }}
-                </x-dropdown-link>
-            </form>
-            <p id="demo"></p>
-            <div class="loader-timer"></div>
-            <p id="score"> High Score : 1m 30s</p>
-            <p id="usename"> Yohasha </p>
-        </div>
+            <x-dropdown-link href="{{ route('logout') }}"
+                @click.prevent="$root.submit();">
+                {{ __('Log Out') }}
+            </x-dropdown-link>
+        </form>
+        <p id="demo"></p>
+        <div class="loader-timer"></div>
+        <p id="score"> High Score : 1m 30s</p>
+        <p id="usename"> Yohasha </p>
+    </div>
 
 
     </div>
