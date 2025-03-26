@@ -30,7 +30,7 @@
         </div>
 
     </div>
-
+<!-- chs -->
     <div class="bottom-bar">
         <form method="POST" action="{{ route('logout') }}" x-data>
             @csrf
