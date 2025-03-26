@@ -26,6 +26,7 @@ class GameController extends Controller
 
     public function showGameRoom()  {
 
-        return view('room.room_1');
+        return view('room.room_2');
+        // return view('room.room_1');
     }
 }
