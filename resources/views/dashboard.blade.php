@@ -1,52 +1,9 @@
 <link rel="stylesheet" href="{{ asset('assets/css/dashboard.css') }}">
-<style>
-  .popup-overlay {
-    position: fixed;
-    top: 0; /* Cover the full screen */
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.7); 
-  }
-
-  .popup-content {
-    position: relative;
-    background-image: url(/assets/img/home/game-info.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 600px;
-    height: 500px;
-    left: 32%;
-    top: 11%;
-}
-  .close-btn {
-    background: red;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-
-  .popup-content-history {
-    position: relative;
-    background-image: url(/assets/img/home/history.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 600px;
-    height: 500px;
-    left: 32%;
-    top: 11%;
-}
-</style>
 
 <body>
   <audio id="my_audio" src="assets/sounds/game_background.mp3" loop muted></audio>
+
+  <!-- REFER SOURCE : reefrontend.com  carousels -->
 
   <div class="container">
     <input type="radio" name="slider" id="item-1" checked>
@@ -66,27 +23,16 @@
     <div class="player">
       <div class="upper-part">
         <div class="info-area" id="test">
-          <label class="song-info" id="song-info-1">
-            <div class="title">ROOM 01</div>
+
+          @foreach ( $game_list as $games)
+          <label class="song-info" id="song-info-{{ $games->id }}">
+            <div class="title">{{$games->name}}</div>
             <div class="sub-line">
-              <div class="subtitle">GAME LEVEL</div>
-              <div class="time"> 01 </div>
+              <div class="subtitle">{{$games->description}}</div>
+              <div class="time"> {{$games->id}}</div>
             </div>
           </label>
-          <label class="song-info" id="song-info-2">
-            <div class="title">ROOM 02</div>
-            <div class="sub-line">
-              <div class="subtitle">GAME LEVEL</div>
-              <div class="time"> 02 </div>
-            </div>
-          </label>
-          <label class="song-info" id="song-info-3">
-            <div class="title">ROOM 03</div>
-            <div class="sub-line">
-              <div class="subtitle">GAME LEVEL</div>
-              <div class="time"> 03 </div>
-            </div>
-          </label>
+          @endforeach
         </div>
       </div>
       <div class="progress-bar">
@@ -102,47 +48,40 @@
   </div>
   <div class="popup-overlay" id="gameInfoPopup">
     <div class="popup-content"></div>
-</div>
-<div class="popup-overlay" id="gameHistoryPopup">
+  </div>
+  <div class="popup-overlay" id="gameHistoryPopup">
     <div class="popup-content-history">
-    @include('history')
+      @include('history')
     </div>
-</div>
+  </div>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script>
-    
-    $(document).ready(function () {
-        $(".menu-btn.help").click(function () {
-            $("#gameInfoPopup").fadeIn();
-        });
+    $(document).ready(function() {
+      $(".menu-btn.help").click(function() {
+        $("#gameInfoPopup").fadeIn();
+      });
 
-        $("#gameInfoPopup").click(function (event) {
-            if (!$(event.target).closest(".popup-content").length) {
-                $("#gameInfoPopup").fadeOut();
-            }
-        });
+      $("#gameInfoPopup").click(function(event) {
+        if (!$(event.target).closest(".popup-content").length) {
+          $("#gameInfoPopup").fadeOut();
+        }
+      });
 
-        $(".menu-btn.history").click(function () {
-            $("#gameHistoryPopup").fadeIn();
-        });
+      $(".menu-btn.history").click(function() {
+        $("#gameHistoryPopup").fadeIn();
+      });
 
-        $("#gameHistoryPopup").click(function (event) {
-            if (!$(event.target).closest(".popup-content-history").length) {
-                $("#gameHistoryPopup").fadeOut();
-            }
-        });
+      $("#gameHistoryPopup").click(function(event) {
+        if (!$(event.target).closest(".popup-content-history").length) {
+          $("#gameHistoryPopup").fadeOut();
+        }
+      });
 
 
-        $('input').on('change', function() {
-          $('body').toggleClass('blue');
-        });
+      $('input').on('change', function() {
+        $('body').toggleClass('blue');
+      });
     });
-
-    // $(document).on("click", function () {
-    //     let audio = $("#my_audio").get(0);
-    //     audio.muted = false;
-    //     audio.play();
-    // });
     function openPopup() {
       const width = 1450;
       const height = 750;
@@ -154,17 +93,12 @@
       );
 
       if (popup) {
-        // Keep enforcing the size but allow movement
         const interval = setInterval(() => {
           if (popup.outerWidth !== width || popup.outerHeight !== height) {
             popup.resizeTo(width, height);
           }
-        }, 100); // Check every 100ms
-
-        // Stop interval when popup is closed
+        }, 100);
         popup.onbeforeunload = () => clearInterval(interval);
-      } else {
-        alert("Popup was blocked! Allow popups for this site.");
       }
     }
   </script>

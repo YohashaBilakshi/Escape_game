@@ -12,6 +12,16 @@ body {
     overflow: hidden;
     position: relative;
 }
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+}
 .game-container {
     position: relative;
     width: 100%;
@@ -22,15 +32,144 @@ body {
     height: 571px;
     object-fit: fill;
 }
-.game-container-main{
+.game-container-main {
     margin-left: -99%;
 }
-.showPaper{
+.showPaper {
     position: absolute;
     top: 73%;
     left: 14%;
     width: 5%;
     height: 10%;
     cursor: pointer;
-    /* background: rgb(207 22 22) */
 }
+
+.clue-area {
+    position: absolute;
+    width: 10%;
+    height: 5%;
+    cursor: pointer;
+    background: transparent;
+}
+
+#clue1 {
+    top: 74%;
+    left: 11%;
+}
+
+#clue2 {
+    top: 61%;
+    left: 45%;
+    position: absolute;
+    width: 100px;
+    height: 30px;
+}
+.clue-popup {
+    position: absolute;
+    top: -28px;
+    left: 69px;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 200px;
+    padding: 15px;
+    display: none;
+    z-index: 1000;
+}
+.clue-submit {
+    display: flex;
+    top: 97%;
+    position: absolute;
+    width: 300px;
+    left: 0%;
+    background-color: rgba(19, 110, 10, 0.1);
+    align-items: center;
+    justify-content: center;
+}
+.clue-popup input {
+    width: 45px;
+    height: 45px;
+    margin: 0 14px;
+    font-size: 24px;
+    text-align: center;
+    border: none;
+    background: hsla(0, 0%, 100%, 1);
+    /* color: #0ff; */
+    outline: none;
+    border-radius: 8px;
+    /* padding: 6px; */
+    box-shadow: inset 4px 4px 8px #fff9f9, inset -4px -4px 8px #7d6161;
+    transition: all 0.3s ease-in-out;
+}
+.clue-submit-door-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    position: absolute;
+    z-index: 1000;
+    top: -50px;
+    left: -50px;
+
+}
+.clue-submit-door-box input {
+    width: 60px;
+    height: 60px;
+    margin-left: 3px;
+    margin-right: 5px;
+    text-align: center;
+    border-width: 6px;
+    font-size: 24px;
+    text-align: center;
+}
+#clue-input-door-1 {
+    border-color: blue;
+}
+#clue-input-door-2 {
+    border-color: yellow;
+}
+#clue-input-door-3 {
+    border-color: pink;
+}
+#clue-input-door-4 {
+    border-color: silver;
+}
+
+.clue-area-wall {
+    position: absolute;
+    width: 120px;
+    height: 250px;
+    left: 85%;
+    top: 23%;
+}
+#clue-3 .box-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+    position: absolute;
+    transform: translate(-400px, 0px);
+    margin-left: 350px;
+}
+
+#clue-3 .box-group .box {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    margin: 5px;
+}
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 60px;
+    aspect-ratio: 1;
+    --g: conic-gradient(from -90deg at 10px 10px,#fff 90deg,#0000 0);
+    background: var(--g), var(--g), var(--g);
+    background-size: 50% 50%;
+    animation: l16 1s infinite;
+  }
+  @keyframes l16 {
+     0%   {background-position:0    0   ,10px 10px,20px 20px} 
+     50%  {background-position:0    20px,10px 10px,20px 0   } 
+     100% {background-position:20px 20px,10px 10px,0    0   } 
+  }
