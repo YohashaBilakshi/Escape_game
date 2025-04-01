@@ -29,7 +29,8 @@ Route::middleware([
     'verified'
 ])->group(function () {
 
-    Route::get('/dashboard', [GameController::class, 'showHome'])->name('getPuzzel');
+    Route::get('/dashboard', [GameController::class, 'showHome'])->name('dashboard');
     Route::get('/puzzel', [GameController::class, 'getPuzzel'])->name('getPuzzel');
-    Route::get('/escape-game', [GameController::class, 'showGameRoom'])->name('showGameRoom');
+    Route::get('/escape-game/{id}', [GameController::class, 'showGameRoom'])->name('showGameRoom');
+    Route::get('/game-complete/{id}/{time}', [GameController::class, 'gameComeplete'])->name('showGameRoom');
 });

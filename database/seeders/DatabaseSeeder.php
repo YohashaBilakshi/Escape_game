@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Second Level',
             ],
             [
-                'name' => 'Room 2',
+                'name' => 'Room 3',
                 'description' => 'Third Level',
             ],
         ]);

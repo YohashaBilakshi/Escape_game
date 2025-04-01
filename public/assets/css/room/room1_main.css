@@ -341,3 +341,6 @@ body {
     }
 }
 
+.open-room{
+    display: none;
+}

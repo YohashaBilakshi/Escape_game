@@ -19,12 +19,13 @@
     <div class="game-container-main" style="width: 1100px; margin-top: 3%;">
 
 
-        <audio id="my_audio" src="assets/sounds/game_background.mp3" loop muted></audio>
+        <audio id="my_audio" src="{{ asset('/sounds/game_background.mp3') }}" loop muted></audio>
 
         <div id="notification-bar" class="notification-bar"> <i class="fa-solid fa-rotate-right"></i> Try Again!</div>
         <div id="overlay" class="overlay"></div>
         <div class="game-container">
-            <img class="game-image" src="assets/img/rooms/room2/room_2.png" alt="Room Image">
+            <img class="game-image" src="{{ asset('assets/img/rooms/room2/room_2.png') }}" alt="Room Image">
+
 
             <!-- Clickable area for the clue -->
             <div class="clue-area " id="clue1">

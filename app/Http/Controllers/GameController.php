@@ -29,17 +29,21 @@ class GameController extends Controller
 
     public function showHome()  {
 
+        $user_id = auth()->user()->id;
+
         $game_hitory_data = GameScore::from('game_score_details as gsd')
         ->leftJoin('game_list as gl' , 'gl.id' , '=' ,'gsd.game_id' )
         ->leftJoin('users as u' , 'u.id' ,'=' ,'gsd.user_id')
         ->where('gsd.status' , 'complete')
         ->select('u.name as user_name', 'gl.name as game_name' , 'gsd.time_taken','gsd.level' ,'gsd.logged_ip')->get();
 
+        $user_level = GameScore::where("user_id", $user_id)->max('level');
+        // dd( $user_level );
         $game_list =  GameList::all();
 
-        return view('dashboard', compact('game_hitory_data', 'game_list'));
+        return view('dashboard', compact('game_hitory_data', 'game_list', 'user_level'));
     }
-    public function showGameRoom()  {
+    public function showGameRoom($id)  {
 
        $url = "https://ipinfo.io/json";
        $logged_ip = null;
@@ -59,11 +63,16 @@ class GameController extends Controller
                 'logged_time' => Carbon::now(),
             ]);
 
+            // return view('room.room_2');
+            return view('room.room_'.$id)->with("gsmeLogId" , $user_game_data->id);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Something went wrong', 'message' => $e->getMessage()], 500);
         }
 
-        return view('room.room_2');
-        // return view('room.room_1');
+
+    }
+
+    public function gameComeplete($id, $time){
+
     }
 }

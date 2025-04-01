@@ -73,7 +73,6 @@ $(document).ready(function () {
     });
 
     function checkPassword() {
-
         let enteredPassword = Array.from(inputs)
             .map((input) => input.value)
             .join("");
@@ -140,11 +139,13 @@ $(document).ready(function () {
         pass = `${pass}${answer}`;
         let finalPass = Number(pass);
 
-        if (code == finalPass) {
+        // if (code == finalPass) {
 
-            const imagePath = "assets/img/rooms/room1/room_1_open.png";
-            const lapScreen = document.querySelector(".game-image");
-            lapScreen.src = imagePath;
+            document.querySelector(".close-room").style.display = "none";
+            document.querySelector(".open-room").style.display = "block";
+            // const imagePath = "assets/img/rooms/room1/room_1_open.png";
+            // const lapScreen = document.querySelector(".game-image");
+            // lapScreen.src = imagePath;
             const passcode = document.querySelector(".passcode-view");
             const spark = document.querySelector(".sparckls");
             spark.style.display = "inline-block";
@@ -156,10 +157,13 @@ $(document).ready(function () {
                 backgroundAudio.currentTime = 0; // Reset audio to start
             }
             // let sparksAudio = new Audio("/assets/sounds/sparks.mp3");
-            sparksAudio.play();
+            // sparksAudio.play();
             spark.style.display = "inline-block";
             passcode.style.display = "none";
-        }
+             
+            gamestop();
+
+        // }
     });
 });
 
