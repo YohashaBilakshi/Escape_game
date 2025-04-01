@@ -16,25 +16,20 @@ $(document).ready(function () {
     $(document).on("click", ".showEnvelope", function (e) {
         showPopup();
         setTimeout(function () {
-            $(".popup").fadeOut(); // Hide the popup smoothly
+            $(".popup").fadeOut();
         }, 4000);
     });
 
     $(document).on("click", ".showLaptop", function (e) {
         document.getElementById("banana-canvas").style.display = "block";
-        // showPopup();
-        // setTimeout(function () {
-        //     $(".popup").fadeOut(); // Hide the popup smoothly
-        // }, 4000);
     });
 
     $(document).on("click", ".showPasscode", function (e) {
         document.getElementById("passcode-view").style.display = "block";
-        // showPopup();
-        // setTimeout(function () {
-        //     $(".popup").fadeOut(); // Hide the popup smoothly
-        // }, 4000);
     });
+
+    // REFER SOURCE : chat.openai.com  popup views  -->
+
     document.body.addEventListener("click", function (event) {
         let popup = document.getElementById("puzzel-popup");
         let bananaCanvas = document.getElementById("banana-canvas");
@@ -57,20 +52,18 @@ $(document).ready(function () {
     const keys = document.querySelectorAll(".key");
     const inputs = document.querySelectorAll(".lap-screen input");
 
-    let currentIndex = 0; // Track which input box is being filled
+    // REFER SOURCE : chat.openai.com  Check if all inputs are filled  -->
+
+    let currentIndex = 0;
 
     keys.forEach((key) => {
         key.addEventListener("click", function () {
-            let keyValue = this.textContent.toUpperCase(); // Ensure uppercase
-
-            // If all inputs are filled, do nothing
+            let keyValue = this.textContent.toUpperCase();
             if (currentIndex >= inputs.length) return;
 
-            // Fill the first empty input
             inputs[currentIndex].value = keyValue;
             currentIndex++;
 
-            // Check if all inputs are filled
             if (currentIndex === inputs.length) {
                 setTimeout(() => {
                     checkPassword();
@@ -83,22 +76,23 @@ $(document).ready(function () {
         let enteredPassword = Array.from(inputs)
             .map((input) => input.value)
             .join("");
+
         if (enteredPassword === "TAKI") {
             const inputs = document.querySelectorAll("input");
             inputs.forEach((input) => (input.style.display = "none"));
             document.getElementById("key-board").style.display = "none";
             let lapsSreen = document.querySelector(".lap-screen");
-            
 
             $.ajax({
                 type: "GET",
                 url: "/puzzel",
                 beforeSend: function () {
                     loaderElement.style.display = "block";
-                    document.querySelectorAll("#digit-a, #digit-b, #digit-c").forEach(el => el.style.display = "block");                    
-                    lapsSreen.style.top = "35%";                    
+                    document
+                        .querySelectorAll("#digit-a, #digit-b, #digit-c")
+                        .forEach((el) => (el.style.display = "block"));
+                    lapsSreen.style.top = "35%";
                     // document.getElementById("lock-display").style.display = "block";
-
                 },
                 success: function (response) {
                     let base64String = response.question;
@@ -112,9 +106,8 @@ $(document).ready(function () {
                     lapScreen.style.backgroundImage =
                         'url("data:image/png;base64,' + base64String + '")';
                     lapScreen.style.backgroundSize = "contain";
-                    lapScreen.style.backgroundPosition = "center"; 
-                    lapScreen.style.backgroundRepeat = "no-repeat"; 
-
+                    lapScreen.style.backgroundPosition = "center";
+                    lapScreen.style.backgroundRepeat = "no-repeat";
                 },
                 error: function (xhr, status, error) {
                     toastr.error('@lang("messages.something_went_wrong")');
@@ -136,39 +129,42 @@ $(document).ready(function () {
         currentIndex = 0;
     }
 
-    
     $(document).on("click", ".unlock-btn", function (e) {
         let code =
             document.getElementById("digit-a").value +
             document.getElementById("digit-b").value +
             document.getElementById("digit-c").value;
 
-            let pass = 27;
-            pass = `${pass}${answer}`;
-            let finalPass = Number(pass)
+        let pass = 27;
+        pass = `${pass}${answer}`;
+        let finalPass = Number(pass);
 
-            if( code == finalPass ){
-                const imagePath = "assets/img/rooms/room1/room_1_open.png";
-                const lapScreen = document.querySelector(".game-image");
-                lapScreen.src = imagePath;
-                const passcode = document.querySelector(".passcode-view");
-                const spark = document.querySelector(".sparckls");
-                spark.style.display = "inline-block";
-                passcode.style.display = "none";
-                let backgroundAudio = document.getElementById("my_audio");
-                if (backgroundAudio) {
-                    backgroundAudio.pause();
-                    backgroundAudio.currentTime = 0; // Reset audio to start
-                }
+        // if (code == finalPass) {
 
-                // let sparksAudio = new Audio("/assets/sounds/sparks.mp3");
-                // sparksAudio.play();
-                // spark.style.display = "inline-block";
-                // passcode.style.display = "none";
-                        }
+            document.querySelector(".close-room").style.display = "none";
+            document.querySelector(".open-room").style.display = "block";
+            // const imagePath = "assets/img/rooms/room1/room_1_open.png";
+            // const lapScreen = document.querySelector(".game-image");
+            // lapScreen.src = imagePath;
+            const passcode = document.querySelector(".passcode-view");
+            const spark = document.querySelector(".sparckls");
+            spark.style.display = "inline-block";
+            passcode.style.display = "none";
 
+            let backgroundAudio = document.getElementById("my_audio");
+            if (backgroundAudio) {
+                backgroundAudio.pause();
+                backgroundAudio.currentTime = 0; // Reset audio to start
+            }
+            // let sparksAudio = new Audio("/assets/sounds/sparks.mp3");
+            // sparksAudio.play();
+            spark.style.display = "inline-block";
+            passcode.style.display = "none";
+             
+            gamestop();
+
+        // }
     });
-
 });
 
 function showPopup() {

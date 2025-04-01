@@ -15,7 +15,7 @@ use App\Http\Controllers\GameController;
 */
 
 Route::get('/', function () {
-    return view('auth.login1');
+    return view('auth.login');
 });
 Route::get('/aa', function () {
     return view('history');
@@ -28,10 +28,9 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
 
+    Route::get('/dashboard', [GameController::class, 'showHome'])->name('dashboard');
     Route::get('/puzzel', [GameController::class, 'getPuzzel'])->name('getPuzzel');
-    Route::get('/escape-game', [GameController::class, 'showGameRoom'])->name('showGameRoom');
+    Route::get('/escape-game/{id}', [GameController::class, 'showGameRoom'])->name('showGameRoom');
+    Route::get('/game-complete/{id}/{time}', [GameController::class, 'gameComeplete'])->name('showGameRoom');
 });

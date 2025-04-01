@@ -1,35 +1,51 @@
 $(document).ready(function () {
+    let countdown;
+
     $(document).on("click", function () {
         let audio = $("#my_audio").get(0);
         audio.muted = false;
         audio.play();
     });
-        // timer
 
-        var countDownDate = new Date("Jan 5, 2030 15:37:25").getTime();
-
-        // Update the count down every 1 second
-        var x = setInterval(function() {
-
-        // Get today's date and time
-        var now = new Date().getTime();
-
-        // Find the distance between now and the count down date
-        var distance = countDownDate - now;
-
-        // Time calculations for days, hours, minutes and seconds
-        // var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        // var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        // Display the result in the element with id="demo"
-        document.getElementById("demo").innerHTML = minutes + "m " + seconds + "s ";
-
-        // If the count down is finished, write some text
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("demo").innerHTML = "EXPIRED";
-        }
-        }, 1000);
+    startCountdown(180);
 });
+
+function startCountdown(duration) {
+    let timerDisplay = document.getElementById("timer");
+    let timeLeft = duration;
+
+    countdown = setInterval(() => {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        timerDisplay.textContent = `${minutes}:${seconds}`;
+
+        if (timeLeft <= 0) {
+            clearInterval(countdown);
+            timerDisplay.textContent = "Time's up!";
+            alert("Time's up!");
+            // window.close();
+            window.location.href = "/dashboard";
+        }
+
+        timeLeft--;
+    }, 1000);
+}
+
+function gamestop() {
+    alert("ddddddddddddd");
+    clearInterval(countdown);
+    // let timerDisplay = document.getElementById("timer");
+    const time = $("#timer").text();
+    const gameLogedId = $("#game-log-id").val();
+    document.getElementById("timer").textContent = "🎉 Contargulations! 🎈";
+
+    $.ajax({
+        type: "GET",
+        url: `/game-complete/${gameLogedId}/${time}`,
+        success: function (response) {},
+        error: function (xhr, status, error) {},
+    });
+}
+window.gamestop = gamestop;

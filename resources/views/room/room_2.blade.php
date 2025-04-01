@@ -19,31 +19,64 @@
     <div class="game-container-main" style="width: 1100px; margin-top: 3%;">
 
 
-        <audio id="my_audio" src="assets/sounds/game_background.mp3" loop muted></audio>
+        <audio id="my_audio" src="{{ asset('/sounds/game_background.mp3') }}" loop muted></audio>
 
         <div id="notification-bar" class="notification-bar"> <i class="fa-solid fa-rotate-right"></i> Try Again!</div>
-
+        <div id="overlay" class="overlay"></div>
         <div class="game-container">
-            <img class="game-image" src="assets/img/rooms/room2/room_2.png" alt="Room Image">
-            <img class="sparckls" style="position: absolute; transform: translate(-50%, -50%); width: 34%; /* height: auto; */ pointer-events: none; margin-left: 33%; margin-top: -44%; display: none" src="assets/img/rooms/room1/clip-sparkling.gif" alt="">
+            <img class="game-image" src="{{ asset('assets/img/rooms/room2/room_2.png') }}" alt="Room Image">
 
+
+            <!-- Clickable area for the clue -->
+            <div class="clue-area " id="clue1">
+                <!-- Clue popup with input for Clue 1 -->
+                <div class="loader"></div>
+                <div id="clue-popup" class="clue-popup">
+                    <div class="clue-submit">
+                        <input type="text" class="digit-input" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="clue-area-door" id="clue2">
+                <div class="clue-door">
+                    <div class="clue-submit-door" style="display: none;">
+                        <div class="clue-submit-door-box">
+                            <input type="number" id="clue-input-door-1" min="1" max="9" placeholder="" maxlength="1">
+                            <input type="number" id="clue-input-door-2" min="1" max="9" placeholder="" maxlength="1">
+                            <input type="number" id="clue-input-door-3" min="1" max="9" placeholder="" maxlength="1">
+                            <input type="number" id="clue-input-door-4" min="1" max="9" placeholder="" maxlength="1">
+                        </div>
+                        <!-- <button id="clue-submit-door">Submit</button>
+                        <button id="clue-close-door">Close</button> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="clue-area-wall" id="clue-3">
+                <div class="box-group" style="display: none">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>              
+                    <div class="color-answer" hidden></div>      
+                    <p style="color: white; font-size: smaller; width: 200px;"> Hint : Color count decending order</p>        
+                </div>
+            </div>
         </div>
+    </div>
+
+    <!-- Clue popup -->
+    <div id="clue-popup" class="clue-popup">
+        <p id="clue-text"></p>
+        <button onclick="closeClue()">Close</button>
+    </div>
+
 
     </div>
-<!-- chs -->
+    <!-- chs -->
     <div class="bottom-bar">
-        <form method="POST" action="{{ route('logout') }}" x-data>
-            @csrf
-
-            <x-dropdown-link href="{{ route('logout') }}"
-                @click.prevent="$root.submit();">
-                {{ __('Log Out') }}
-            </x-dropdown-link>
-        </form>
-        <p id="demo"></p>
-        <div class="loader-timer"></div>
-        <p id="score"> High Score : 1m 30s</p>
-        <p id="usename"> Yohasha </p>
+        @include('layouts.footer')
     </div>
 
 

@@ -1,7 +1,6 @@
 <style>
     body {
         font-family: "Permanent Marker", cursive;
-        ;
         text-align: center;
         margin-top: 0px;
     }
@@ -59,60 +58,121 @@
         background-color: #c37c3e;
         font-weight: bold;
     }
+    .tab-nav {
+    display: flex;
+    /* margin-bottom: 20px; */
+}
+
+.tab-button {
+    font-family: "Permanent Marker", cursive;
+    padding: 10px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    /* background-color: #f1f1f1; */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.tab-button.active {
+    background-color: #c37c3e;
+    color: #000000;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
 </style>
 
-<div class="highscore">
-    <table>
-        <thead>
-            <tr>
-                <th>User</th>
-                <th>Game Name</th>
-                <th>Level</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            @foreach ( $game_hitory_data as $data)
-
-            <tr>
-                <td>{{ $data->user_name }}</td>
-                <td>{{ $data->game_name }}</td>
-                <td>{{ $data->level }}</td>
-
-            </tr>
-
-            @endforeach
-
-        </tbody>
-    </table>
-</div>
 <article class="content">
-    <table>
-        <thead>
-            <tr>
-                <th>User</th>
-                <th>Game Name</th>
-                <th>Time Taken</th>
-                <th>Level</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ( $game_hitory_data as $data)
-            <tr>
-                <td>{{ $data->user_name }}</td>
-                <td>{{ $data->game_name }}</td>
-                <td>{{ $data->time_taken }}</td>
-                <td>{{ $data->level }}</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+
+    <div class="container">
+        <div class="tab-nav">
+            <button class="tab-button active" onclick="showTab('home')">Home</button>
+            <button class="tab-button" onclick="showTab('profile')">Profile</button>
+        </div>
+
+        <div id="home" class="tab-content active">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Logged At</th>
+                        <th>IP</th>
+                        <th>Time Taken</th>
+                        <th>Level</th>
+                        <th>Staus</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach ( $game_hitory_data as $data)
+
+                    <tr>
+                        <td>{{ $data->logged_time }}</td>
+                        <td>{{ $data->logged_ip }}</td>
+                        <td>{{ $data->time_taken }}</td>
+                        <td>{{ $data->level }}</td>
+                        <td>{{ $data->status }}</td>
+                    </tr>
+
+                    @endforeach
+
+                </tbody>
+            </table>
+        </div>
+        <div id="profile" class="tab-content">
+        <table>
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Time Score</th>
+                        <th>Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach ( $game_hitory_data as $data)
+
+                    <tr>
+                        <td>{{ $data->user_name }}</td>
+                        <td>{{ $data->time_taken }}</td>
+                        <td>{{ $data->level }}</td>
+                    </tr>
+
+                    @endforeach
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
 </article>
 
 <script>
+    //chat gpt
+     function showTab(tabName) {
+        var tabs = document.querySelectorAll('.tab-content');
+        var buttons = document.querySelectorAll('.tab-button');
 
-    // REFER SOURCE : chat.openai.com  pagination
+        // Hide all tabs
+        tabs.forEach(function(tab) {
+            tab.classList.remove('active');
+        });
 
+        // Remove active class from all buttons
+        buttons.forEach(function(button) {
+            button.classList.remove('active');
+        });
+
+        // Show the selected tab
+        document.getElementById(tabName).classList.add('active');
+        event.target.classList.add('active');
+    }
     document.addEventListener('DOMContentLoaded', function() {
         const content = document.querySelector('.content');
         const itemsPerPage = 5;
@@ -134,6 +194,7 @@
             const paginationDiv = document.body.appendChild(paginationContainer);
             paginationContainer.classList.add('pagination');
 
+            // Add page buttons
             for (let i = 0; i < totalPages; i++) {
                 const pageButton = document.createElement('button');
                 pageButton.textContent = i + 1;

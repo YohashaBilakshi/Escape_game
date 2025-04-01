@@ -1,53 +1,47 @@
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
 
-  @import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
-
-  * {
+* {
     box-sizing: border-box;
-  }
+}
 
-  html,
-  body {
+html,
+body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
     font-family: "Permanent Marker", cursive;
-  }
+}
 
-  body {
+body {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 30px 10px;
-    font-family: 'DM Sans', sans-serif;
-    transition: background .4s ease-in;
-    background-image: url('/assets/img/login-back.png');
+    font-family: "DM Sans", sans-serif;
+    transition: background 0.4s ease-in;
+    background-image: url("/assets/img/login-back.png");
     backdrop-filter: blur(10px);
     background-repeat: no-repeat;
     background-size: cover;
-    /* Ensures it covers the entire screen */
+}
 
-    /* &.blue {
-    background-color: #428aa6;
-  } */
-  }
-
-  input[type=radio] {
+input[type="radio"] {
     display: none;
-  }
+}
 
-  .card {
+.card {
     position: absolute;
     width: 60%;
     height: 100%;
     left: 0;
     right: 0;
     margin: auto;
-    transition: transform .4s ease;
+    transition: transform 0.4s ease;
     cursor: pointer;
-  }
+}
 
-  .container {
+.container {
     width: 100%;
     max-width: 800px;
     max-height: 600px;
@@ -57,168 +51,149 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-left: -6%;
-  }
+    margin-left: -0%;
+}
 
-  .cards {
+.cards {
     position: relative;
     width: 100%;
     height: 100%;
     margin-bottom: 20px;
-  }
+}
 
-  img {
+img {
     width: 132%;
     height: 92%;
     border-radius: 10px;
     object-fit: cover;
     margin-left: -14%;
-  }
+}
 
-  #item-1:checked~.cards #song-3,
-  #item-2:checked~.cards #song-1,
-  #item-3:checked~.cards #song-2 {
-    transform: translatex(-40%) scale(.8);
-    opacity: .4;
+#item-1:checked ~ .cards #song-3,
+#item-2:checked ~ .cards #song-1,
+#item-3:checked ~ .cards #song-2 {
+    transform: translatex(-40%) scale(0.8);
+    opacity: 0.4;
     z-index: 0;
-  }
+}
 
-  #item-1:checked~.cards #song-2,
-  #item-2:checked~.cards #song-3,
-  #item-3:checked~.cards #song-1 {
-    transform: translatex(40%) scale(.8);
-    opacity: .4;
+#item-1:checked ~ .cards #song-2,
+#item-2:checked ~ .cards #song-3,
+#item-3:checked ~ .cards #song-1 {
+    transform: translatex(40%) scale(0.8);
+    opacity: 0.4;
     z-index: 0;
-  }
+}
 
-  #item-1:checked~.cards #song-1,
-  #item-2:checked~.cards #song-2,
-  #item-3:checked~.cards #song-3 {
+#item-1:checked ~ .cards #song-1,
+#item-2:checked ~ .cards #song-2,
+#item-3:checked ~ .cards #song-3 {
     transform: translatex(0) scale(1);
     opacity: 1;
     z-index: 1;
+}
 
-    /* img { */
-    /* box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47); */
-    /* } */
-  }
-
-  .menu-bar {
+.menu-bar {
     margin-left: 10%;
-  }
+}
 
-  .player {
+.player {
     font-family: "Permanent Marker", cursive;
-
     border-radius: 8px;
     min-width: 320px;
-    /* padding: 16px 10px; */
-    /* background-color: #f15d29; */
     color: white;
     text-align: center;
     font-weight: bold;
     font-size: 18px;
-    /* 3D Effect */
-    /* box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3),
-      inset 0px 4px 6px rgba(255, 255, 255, 0.2); */
-  }
-  .upper-part {
+}
+.upper-part {
     position: relative;
     display: flex;
     align-items: center;
     margin-bottom: 12px;
     height: 36px;
     overflow: hidden;
-  }
+}
 
-  .play-icon {
+.play-icon {
     margin-right: 10px;
-  }
+}
 
-  .song-info {
+.song-info {
     width: calc(100% - 32px);
     display: block;
-  }
+}
 
-  .song-info .title {
+.song-info .title {
     /* color: #403d40; */
     font-size: 16px;
     line-height: 24px;
-  }
+}
 
-  .sub-line {
+.sub-line {
     display: flex;
     justify-content: space-between;
     width: 100%;
-  }
+}
 
-  .subtitle,
-  .time {
+.subtitle,
+.time {
     font-size: 12px;
     line-height: 16px;
     color: #c6c5c6;
-  }
+}
 
-  .time {
+.time {
     font-size: 12px;
     line-height: 16px;
     color: #a5a5a5;
     font-weight: 500;
     margin-left: auto;
-  }
+}
 
-  .progress-bar {
+.progress-bar {
     height: 3px;
     width: 100%;
     background-color: #e9efff;
     border-radius: 2px;
     overflow: hidden;
-  }
+}
 
-  .progress {
+.progress {
     display: block;
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: hsla(11,100%,52.2%,1);
+    background-color: hsla(11, 100%, 52.2%, 1);
     border-radius: 6px;
-  }
+}
 
-  .info-area {
+.info-area {
     width: 100%;
     position: absolute;
     top: 0;
     left: 30px;
-    transition: transform .4s ease-in;
+    transition: transform 0.4s ease-in;
+}
 
-
-
-  }
-
-  #item-2:checked~.player #test {
+#item-2:checked ~ .player #test {
     transform: translateY(0);
-  }
+}
 
-  #item-2:checked~.player #test {
+#item-2:checked ~ .player #test {
     transform: translateY(-40px);
-  }
+}
 
-  #item-3:checked~.player #test {
+#item-3:checked ~ .player #test {
     transform: translateY(-80px);
-  }
+}
 
-  .menu-bar {
+.menu-bar {
     display: flex;
     flex-direction: column;
-  }
+}
 
-  .menu-btn-cls {
-    /* display: contents; */
-  }
-
-  .menu-btn {
-    /* margin: 30px 4px 30px 4px; */
-    /* background-image: url(/assets/img/home/button.png); */
+.menu-btn {
     background-size: cover;
     width: 247px;
     height: 111px;
@@ -227,35 +202,75 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
+}
 
-  }
-
-  .help {
+.help {
     background-image: url(/assets/img/home/help-btn.png);
     margin-left: 22px;
-  }
+}
 
-  .history {
+.history {
     background-image: url(/assets/img/home/history-btn.png);
     margin-left: 30px;
-  }
-  .leave {
+}
+.leave {
     background-image: url(/assets/img/home/leave-btn.png);
     margin-left: 30px;
-  }
+}
 
-  .popup-overlay {
+.popup-overlay {
     background-image: url(/assets/img/home/game-info.png);
-    /* margin-left: 30px; */
     background-size: cover;
-
-  }
-  .play {
+}
+.play {
     background-image: url(/assets/img/home/play-btn.png);
     background-repeat: no-repeat;
     background-size: cover;
     width: 400px;
     height: 200px;
     margin-left: -20px;
-  }
+}
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+}
 
+.popup-content {
+    position: relative;
+    background-image: url(/assets/img/home/game-info.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 600px;
+    height: 500px;
+    left: 32%;
+    top: 11%;
+}
+
+.close-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.popup-content-history {
+    position: relative;
+    background-image: url(/assets/img/home/history.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 600px;
+    height: 500px;
+    left: 32%;
+    top: 11%;
+}
