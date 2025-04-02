@@ -30,9 +30,9 @@ function startCountdown(duration) {
             countdownActive = false; 
             clearInterval(countdown);
             timerDisplay.textContent = "Time's up!";
-            alert("Time's up!");
+            // alert("Time's up!");
             // window.close();
-            window.location.href = "/dashboard";
+            // window.location.href = "/dashboard";
         }
 
         timeLeft--;
