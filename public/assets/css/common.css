@@ -106,3 +106,7 @@
     color: #4b9cd3;
     font-weight: bold;
 }
+
+.open-room{
+    display: none;
+}

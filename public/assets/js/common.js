@@ -1,13 +1,18 @@
 $(document).ready(function () {
     let countdown;
+    let countdownActive  = false;
 
     $(document).on("click", function () {
         let audio = $("#my_audio").get(0);
         audio.muted = false;
         audio.play();
+
+        if(!countdownActive ){
+            startCountdown(180);
+            countdownActive  = true;
+        }
     });
 
-    startCountdown(180);
 });
 
 function startCountdown(duration) {
@@ -22,11 +27,12 @@ function startCountdown(duration) {
         timerDisplay.textContent = `${minutes}:${seconds}`;
 
         if (timeLeft <= 0) {
+            countdownActive = false; 
             clearInterval(countdown);
             timerDisplay.textContent = "Time's up!";
-            alert("Time's up!");
+            // alert("Time's up!");
             // window.close();
-            window.location.href = "/dashboard";
+            // window.location.href = "/dashboard";
         }
 
         timeLeft--;

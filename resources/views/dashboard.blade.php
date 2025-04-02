@@ -3,6 +3,7 @@
 <body>
   <audio id="my_audio" src="assets/sounds/game_background.mp3" loop muted></audio>
   <input type="hidden" class="game_level" value="{{ $user_level }}">
+  
   <!-- REFER SOURCE : reefrontend.com  carousels -->
 
   <div class="container">
@@ -11,7 +12,7 @@
     <input type="radio" name="slider" id="item-3">
     <div class="cards">
       <label class="card" for="item-1" id="song-1">
-        <img src="/assets/img/home/room_1_h3.png" alt="song">
+        <img src="/assets/img/home/room_1_open.png" alt="song">
       </label>
       <label class="card" for="item-2" id="song-2">
         <img src="/assets/img/home/room_2_h.png" alt="song">

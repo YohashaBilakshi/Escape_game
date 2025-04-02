@@ -1,7 +1,6 @@
 <style>
     body {
-        font-family: "Permanent Marker", cursive;
-        ;
+        font-family: "Permanent Marker", cursive;;
         text-align: center;
         margin-top: 0px;
     }
@@ -62,55 +61,63 @@
 </style>
 
 <div class="highscore">
+    <h1>MY HISTORY</h1>
     <table>
         <thead>
             <tr>
-                <th>User</th>
+                <th>Logged IP</th>
                 <th>Game Name</th>
-                <th>Level</th>
+                <th>Time Taken</th>
             </tr>
         </thead>
         <tbody>
-
-            @foreach ( $game_hitory_data as $data)
-
-            <tr>
-                <td>{{ $data->user_name }}</td>
-                <td>{{ $data->game_name }}</td>
-                <td>{{ $data->level }}</td>
-
-            </tr>
-
+        @if(isset($game_hitory_data) && count($game_hitory_data) > 0)
+            @foreach ($game_hitory_data as $data)
+                @if($data->user_id == auth()->user()->id )
+                    <tr>
+                        <td>{{ $data->logged_ip }}</td>
+                        <td>{{ $data->game_name }}</td>
+                        <td>{{ $data->time_taken }}</td>
+                    </tr>
+                @endif
             @endforeach
-
+        @else
+            <tr>
+                <td colspan="3">No Data Found</td>
+            </tr>
+        @endif
         </tbody>
     </table>
 </div>
 <article class="content">
+    <h1>SCORE TABLE</h1>
     <table>
         <thead>
             <tr>
                 <th>User</th>
-                <th>Game Name</th>
                 <th>Time Taken</th>
                 <th>Level</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ( $game_hitory_data as $data)
-            <tr>
-                <td>{{ $data->user_name }}</td>
-                <td>{{ $data->game_name }}</td>
-                <td>{{ $data->time_taken }}</td>
-                <td>{{ $data->level }}</td>
-            </tr>
-            @endforeach
+            @if(isset($game_hitory_data) && count($game_hitory_data) > 0)
+                @foreach ( $game_hitory_data as $data)
+                    <tr>
+                        <td>{{ $data->user_name }}</td>
+                        <td>{{ $data->time_taken }}</td>
+                        <td>{{ $data->game_name }}</td>
+                    </tr>
+                @endforeach
+            @else
+                <tr>
+                    <td colspan="3">No Data Found</td>
+                </tr>
+            @endif
         </tbody>
     </table>
 </article>
 
 <script>
-
     // REFER SOURCE : chat.openai.com  pagination
 
     document.addEventListener('DOMContentLoaded', function() {
