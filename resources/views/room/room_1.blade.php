@@ -20,10 +20,13 @@
 
         <input type="hidden" id="game-log-id" value="{{$gsmeLogId}}">
 
+        <!-- backgrounf audion -->
         <audio id="my_audio" src="{{ asset('assets/sounds/game_background.mp3') }}" loop muted></audio>
 
+        <!-- game notification bar -->
         <div id="notification-bar" class="notification-bar"> <i class="fa-solid fa-rotate-right"></i> Try Again!</div>
 
+        <!-- main game container -->
         <div class="game-container">
             <img class="game-image close-room" src="{{ asset('assets/img/rooms/room1/room_1.png') }}" alt="Room Image">
             <img class="game-image open-room" src="{{ asset('assets/img/rooms/room1/room_1_open.png') }}" alt="Room Image">
@@ -33,6 +36,7 @@
             <div class="showPasscode"></div>  <!-- Clickable area door lock -->
         </div>
 
+        <!-- door lock -->
         <div id="passcode-view" class="passcode-view">
             <div class="lock-display" id="lock-display">
                 <input type="number" class="digit-input" maxlength="1" id="digit-a" min="0" placeholder="🍏" oninput="moveNext(this, 'digit-2')" />
@@ -70,6 +74,8 @@
         <div class="popup puzzel-popup" id="puzzel-popup">
             <img id="" class="" src="{{ asset('assets/img/rooms/room1/password_envelop.gif') }}" alt="Password">
         </div>
+
+        <!-- footer -->
 
         <div class="bottom-bar">
             @include('layouts.footer')

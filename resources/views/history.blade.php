@@ -61,6 +61,8 @@
 </style>
 
 <div class="highscore">
+    
+    <!-- logged user game details -->
     <h1>MY HISTORY</h1>
     <table>
         <thead>
@@ -90,6 +92,7 @@
     </table>
 </div>
 <article class="content">
+    <!-- details table of all users in the system -->
     <h1>SCORE TABLE</h1>
     <table>
         <thead>

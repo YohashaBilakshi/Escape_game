@@ -2,6 +2,7 @@ $(document).ready(function () {
     let countdown;
     let countdownActive  = false;
 
+    // game room background music starts
     $(document).on("click", function () {
         let audio = $("#my_audio").get(0);
         audio.muted = false;
@@ -16,6 +17,7 @@ $(document).ready(function () {
 
 });
 
+// game count down
 
 function startCountdown(duration) {
     let timerDisplay = document.getElementById("timer");
@@ -39,10 +41,11 @@ function startCountdown(duration) {
     }, 1000);
 }
 
+// game complete function
+
 function gamestop() {
 
     clearInterval(countdown);
-    // let timerDisplay = document.getElementById("timer");
     const time = $("#timer").text();
     const gameLogedId = $("#game-log-id").val();
     document.getElementById("timer").textContent = "🎉 Contargulations! 🎈";

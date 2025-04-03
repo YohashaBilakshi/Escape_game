@@ -175,7 +175,6 @@ footer a{
   </style>
 </head>
 <body>
-<!-- partial:index.partial.html -->
 <div id="keyboard-box" class="keyboard">
   <ul class="row">
     <li class="key clay">1</li>
@@ -188,9 +187,6 @@ footer a{
     <li class="key clay">8</li>
     <li class="key clay">9</li>
     <li class="key clay">0</li>
-    <!-- <li class="key clay">_</li> -->
-    <!-- <li class="key clay">=</li> -->
-    <!-- <li class="key clay" id="del">🗑️</li> -->
   </ul>
   <ul class="row">
     <li class="key clay">A</li>
@@ -204,53 +200,8 @@ footer a{
     <li class="key clay">O</li>
     <li class="key clay">P</li>
   </ul>
-  <!--<ul class="row">
-    <li class="key clay" id="caps">🎓</li>
-    <li class="key clay">A</li>
-    <li class="key clay">S</li>
-    <li class="key clay">D</li>
-    <li class="key clay">F</li>
-    <li class="key clay">G</li>
-    <li class="key clay">H</li>
-    <li class="key clay">J</li>
-    <li class="key clay">K</li>
-    <li class="key clay">L</li>
-    <li class="key clay">;</li>
-    <li class="key clay">"</li>
-    <li class="key clay" id="enter">🦘</li>
-  </ul>
-
-  <ul class="row">
-    <li class="key clay" id="shift">🛹</li>
-    <li class="key clay">Z</li>
-    <li class="key clay">X</li>
-    <li class="key clay">C</li>
-    <li class="key clay">V</li>
-    <li class="key clay">B</li>
-    <li class="key clay">N</li>
-    <li class="key clay">M</li>
-    <li class="key clay">,</li>
-    <li class="key clay">.</li>
-    <li class="key clay">?</li>
-    <li class="key clay" id="shift2">⛸️</li>
-    <li class="key clay" id="up-arrow">☝️</li>
-  </ul>
-
-  <ul class="row">
-    <li class="key clay" id="ctrl">🕹️</li>
-    <li class="key clay" id="fn">🎪</li>
-    <li class="key clay" id="win">🌏</li>
-    <li class="key clay" id="alt">🦇</li>
-    <li class="key clay" id="space"></li>
-    <li class="key clay" id="altgr">⛓</li>
-    <li class="key clay" id="menu">🌶️</li>
-    <li class="key clay" id="ctrl2">🐪</li>
-    <li class="key clay" id="left-arrow">👈🏿</li>
-    <li class="key clay" id="down-arrow">👇🏻</li>
-  </ul> -->
 </div>
 
-<!-- partial -->
   <script src='https://unpkg.com/react@17/umd/react.development.js'></script>
 <script src='https://unpkg.com/react-dom@17/umd/react-dom.development.js'></script>
 </body>

@@ -30,6 +30,7 @@ $(document).ready(function () {
         }
     });
 
+    // clue are showing
     $("#clue2").click(function () {
         document.querySelector(".clue-submit-pass").style.display = "flex";
         $("#overlay").fadeIn();
@@ -52,6 +53,7 @@ $(document).ready(function () {
         $("#overlay").fadeIn();
     });
 
+    // box color changing
     const colors = ["black", "yellow"];
     let selectedOrder = [];
 
@@ -114,6 +116,7 @@ $(document).ready(function () {
         $(".clue-submit-door, #overlay").fadeOut();
     });
 
+    //  checking final door code
     const passInput = document.getElementById("passInput");
     const buttons = document.querySelectorAll(".btn");
     const correctCode = "416";
@@ -141,7 +144,7 @@ $(document).ready(function () {
                             "block";
                         document.querySelector(".sparckls").style.display =
                             "inline";
-                        gamestop();
+                        gamestop(); //  call to common js
                     } else {
                         passInput.value = "";
                     }
@@ -151,6 +154,7 @@ $(document).ready(function () {
     });
 });
 
+// laptop password check
 function unclock() {
     let password = $("#password").val();
 
@@ -170,6 +174,7 @@ function unclock() {
     }
 }
 
+//  banana count check
 function unclock2() {
     let password = $("#password").val();
 
@@ -181,6 +186,7 @@ function unclock2() {
     }
 }
 
+// banana API calling
 function bananaPuzzle() {
     $.ajax({
         type: "GET",

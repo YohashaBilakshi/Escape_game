@@ -14,6 +14,7 @@ class GameController extends Controller
 {
 
 
+    // Calling banana API 
     public function getPuzzel()
     {
 
@@ -32,6 +33,7 @@ class GameController extends Controller
         }
     }
 
+    // show home page
     public function showHome()
     {
 
@@ -56,14 +58,17 @@ class GameController extends Controller
             ->get();
 
         $user_level = GameScore::where("user_id", $user_id)->max('level');
-        // $user_level = GameScore::where("user_id", $user_id)->max('level');
+     
         $game_list =  GameList::all();
 
         return view('dashboard', compact('game_hitory_data', 'game_list', 'user_level'));
     }
+
+    // showing game rooms
     public function showGameRoom($id)
     {
 
+        // IP Fetching 
         $url = "https://ipinfo.io/json";
         $logged_ip = null;
 
@@ -82,13 +87,13 @@ class GameController extends Controller
                 'logged_time' => Carbon::now(),
             ]);
 
-            // return view('room.room_2');
             return view('room.room_' . $id)->with("gsmeLogId", $user_game_data->id);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Something went wrong', 'message' => $e->getMessage()], 500);
         }
     }
 
+    // game comple score storing function
     public function gameComeplete($id, $time)
     {
 

@@ -18,11 +18,15 @@
 
     <div class="game-container-main" style="width: 1100px; margin-top: 3%;">
 
+        <!-- background audion  -->
         <audio id="my_audio" src="{{ asset('assets/sounds/game_background.mp3') }}" loop muted></audio>
         <input type="hidden" id="game-log-id" value="{{$gsmeLogId}}">
 
+        <!-- game notification bar -->
         <div id="notification-bar" class="notification-bar"> <i class="fa-solid fa-rotate-right"></i> Try Again!</div>
         <div id="overlay" class="overlay"></div>
+
+        <!-- main game container -->
         <div class="game-container">
             <img class="game-image close-room" src="{{ asset('assets/img/rooms/room2/room_2.png') }}" alt="Room Image">
             <img class="game-image open-room" src="{{ asset('assets/img/rooms/room2/room_2_open.png') }}" alt="Room Image">
@@ -74,6 +78,9 @@
     </div>
 
     </div>
+
+    <!-- footer -->
+
     <div class="bottom-bar">
         @include('layouts.footer')
     </div>

@@ -30,6 +30,7 @@ $(document).ready(function () {
 
     // REFER SOURCE : chat.openai.com  popup views  -->
 
+    // popup background hide
     document.body.addEventListener("click", function (event) {
         let popup = document.getElementById("puzzel-popup");
         let bananaCanvas = document.getElementById("banana-canvas");
@@ -72,6 +73,7 @@ $(document).ready(function () {
         });
     });
 
+    // laptop password check and fetching banana API
     function checkPassword() {
         let enteredPassword = Array.from(inputs)
             .map((input) => input.value)
@@ -127,6 +129,7 @@ $(document).ready(function () {
         currentIndex = 0;
     }
 
+    // final door lock pass check
     $(document).on("click", ".unlock-btn", function (e) {
         let code =
             document.getElementById("digit-a").value +
@@ -153,7 +156,7 @@ $(document).ready(function () {
             }
             spark.style.display = "inline-block";
             passcode.style.display = "none";
-            gamestop();
+            gamestop(); //  call to common js
         }
     });
 });

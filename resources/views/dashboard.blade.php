@@ -6,6 +6,7 @@
 
   <!-- REFER SOURCE : freefrontend.com  carousels -->
 
+  <!-- home page game slide show -->
   <div class="container">
     <input type="radio" name="slider" id="item-1" checked>
     <input type="radio" name="slider" id="item-2">
@@ -40,6 +41,8 @@
       </div>
     </div>
   </div>
+
+  <!-- home page menu button section -->
   <div class="menu-bar">
     <div class="menu-btn-cls"><button class="menu-btn help"></button></div>
     <div class="menu-btn-cls"><button class="menu-btn history"></button></div>
@@ -52,6 +55,8 @@
   <div class="popup-overlay" id="gameInfoPopup">
     <div class="popup-content"></div>
   </div>
+
+  <!-- home page history section -->
   <div class="popup-overlay" id="gameHistoryPopup">
     <div class="popup-content-history">
       @include('history')
@@ -60,6 +65,9 @@
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script>
     $(document).ready(function() {
+
+      // menu buttons popups
+      
       $(".menu-btn.help").click(function() {
         $("#gameInfoPopup").fadeIn();
       });
@@ -80,13 +88,13 @@
         }
       });
 
-
       $('input').on('change', function() {
         $('body').toggleClass('blue');
       });
 
     });
 
+    // game room opening function accorting to game ID
     function openPopup() {
 
       let checkedRadio = document.querySelector('input[name="slider"]:checked');

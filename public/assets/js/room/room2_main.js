@@ -6,6 +6,7 @@ $(document).ready(function () {
     let bananaPzzelShow = false;
     loaderElement.style.display = "none";
 
+    // fetching banana API
     $("#clue1").click(function () {
         let clueId = $(this).attr("id");
         if (!bananaPzzelShow) {
@@ -83,7 +84,7 @@ $(document).ready(function () {
         $("#overlay").fadeIn();
     });
 
-    // REFER SOURCE : https://chatgpt.com/  box color changes
+    // REFER SOURCE : https://chatgpt.com/  box color changes 
     const colors = ["red", "blue", "purple", "green"];
     let selectedOrder = [];
 
@@ -144,6 +145,7 @@ $(document).ready(function () {
     });
 });
 
+//  final door unlock
 function unclockDoor() {
     let digit1 = $("#clue-input-door-1").val();
     let digit2 = $("#clue-input-door-2").val();
@@ -159,6 +161,6 @@ function unclockDoor() {
         document.querySelector(".open-room").style.display = "block";
         document.querySelector(".sparckls").style.display = "inline";
         doorLockShow = true;
-        gamestop();
+        gamestop(); //  call to common js
     }
 }
