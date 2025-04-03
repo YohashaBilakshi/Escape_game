@@ -119,7 +119,7 @@ $(document).ready(function () {
     }
     
     function checkOrder() {
-        const correctOrder = ["purple", "blue", "green", "red"];
+        const correctOrder = ["green", "blue", "purple", "red"];
         if (arraysEqual(selectedOrder, correctOrder)) {
             $(".color-answer").show();
             $(".hint").hide();

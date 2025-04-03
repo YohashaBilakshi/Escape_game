@@ -3,19 +3,22 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Permanent+Marker&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 <section class="forms-section">
-  <h1 class="section-title"><img src="/assets/img/title.png" alt=""></h1>
+  <h1 class="section-title"><img src="/assets/img/title.png" alt=""> <button style="background:transparent; border: none; font-family: 'Permanent Marker', cursive;" 
+  onclick="window.open('/readme', '_blank')">ℹ️ info</button></h1>
+ 
   <div class="forms">
     <div class="form-wrapper is-active">
       <button type="button" class="switcher switcher-login">
         <img src="/assets/img/login.png" alt="">
         <span class="underline"></span>
       </button>
+      
       @if (session('status'))
       <div class="mb-4 font-medium text-sm text-green-600">
         {{ session('status') }}
       </div>
       @endif
-      
+     
       <form class="form form-login" method="POST" action="{{ route('login') }}">
         @csrf
         <fieldset>

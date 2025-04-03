@@ -108,6 +108,7 @@ $(document).ready(function () {
                     lapScreen.style.backgroundSize = "contain";
                     lapScreen.style.backgroundPosition = "center";
                     lapScreen.style.backgroundRepeat = "no-repeat";
+                    $(".hint2").show();
                 },
                 error: function (xhr, status, error) {
                     toastr.error('@lang("messages.something_went_wrong")');

@@ -17,8 +17,8 @@ use App\Http\Controllers\GameController;
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::get('/aa', function () {
-    return view('history');
+Route::get('/readme', function () {
+    return view('readme');
 });
 Route::get('/showGameRoom', function () {
     return view('room.room_1');

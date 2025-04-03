@@ -3,7 +3,7 @@
 <body>
   <audio id="my_audio" src="assets/sounds/game_background.mp3" loop muted></audio>
   <input type="hidden" class="game_level" value="{{ $user_level }}">
-  
+
   <!-- REFER SOURCE : reefrontend.com  carousels -->
 
   <div class="container">
@@ -15,10 +15,10 @@
         <img src="/assets/img/home/room_1_open.png" alt="song">
       </label>
       <label class="card" for="item-2" id="song-2">
-        <img src="/assets/img/home/{{ $user_level > 2 ? 'room_2_open' : 'room_2_h' }}.png" alt="song">
+        <img src="/assets/img/home/{{ $user_level >= 2 ? 'room_2_open' : 'room_2_h' }}.png" alt="song">
       </label>
       <label class="card" for="item-3" id="song-3">
-        <img src="/assets/img/home/{{ $user_level > 3 ? 'room_3_open' : 'room_3_h' }}.png" alt="song">
+        <img src="/assets/img/home/{{ $user_level >= 3 ? 'room_3_open' : 'room_3_h' }}.png" alt="song">
       </label>
     </div>
     <div class="player">
@@ -43,7 +43,10 @@
   <div class="menu-bar">
     <div class="menu-btn-cls"><button class="menu-btn help"></button></div>
     <div class="menu-btn-cls"><button class="menu-btn history"></button></div>
-    <div class="menu-btn-cls"><button class="menu-btn leave"></button></div>
+    <a href="/user/profile">
+      <div class="menu-btn-cls"><button class="menu-btn leave"> </button>
+      </div>
+    </a>
     <div class="menu-btn-cls"><button class="menu-btn play" onclick="openPopup()"></button></div>
   </div>
   <div class="popup-overlay" id="gameInfoPopup">
@@ -81,6 +84,7 @@
       $('input').on('change', function() {
         $('body').toggleClass('blue');
       });
+
     });
 
     function openPopup() {

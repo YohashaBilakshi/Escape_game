@@ -56,7 +56,7 @@
                     <input type="text" maxlength="1" id="digit-4">
                 </div>
             </div>
-
+            <p class="hint2" style="color: white; margin-left: 496px; display: none;"> Get the banana value and find the place to apply that .  </p>
              <!-- REFER SOURCE : reefrontend.com  keyboard designs  -->
             <div class="key-board" id="key-board">
                 @include('keyboard')

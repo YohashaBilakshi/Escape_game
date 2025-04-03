@@ -83,7 +83,7 @@ class GameController extends Controller
             ]);
 
             // return view('room.room_2');
-            return view('room.room_' . 3)->with("gsmeLogId", $user_game_data->id);
+            return view('room.room_' . $id)->with("gsmeLogId", $user_game_data->id);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Something went wrong', 'message' => $e->getMessage()], 500);
         }

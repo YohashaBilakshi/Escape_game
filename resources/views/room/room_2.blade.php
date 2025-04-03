@@ -18,7 +18,7 @@
 
     <div class="game-container-main" style="width: 1100px; margin-top: 3%;">
 
-        <audio id="my_audio" src="{{ asset('/sounds/game_background.mp3') }}" loop muted></audio>
+        <audio id="my_audio" src="{{ asset('assets/sounds/game_background.mp3') }}" loop muted></audio>
         <input type="hidden" id="game-log-id" value="{{$gsmeLogId}}">
         
         <div id="notification-bar" class="notification-bar"> <i class="fa-solid fa-rotate-right"></i> Try Again!</div>
@@ -38,7 +38,7 @@
                 
                 <div id="clue-popup" class="clue-popup">
                     <div class="clue-submit">
-                       <input type="text" class="digit-input" id="digit-input" />
+                       <input type="text" class="digit-input" id="digit-input" placeholder="Get the banana value" />
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                     <div class="box"></div>
                     <div class="box"></div>              
                     <div class="color-answer" hidden > <span style="color:#d953b0;"> 8 </span> <span style="color: grey;"> 9 </span></div>      
-                    <p class="hint" style="color: white; font-size: smaller; width: 200px;"> Hint : Color count decending order</p>        
+                    <p class="hint" style="color: white; font-size: smaller; width: 200px;"> Hint : Get the color boxes count and make decending order .</p>        
                 </div>
             </div>
         </div>
