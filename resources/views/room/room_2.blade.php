@@ -18,9 +18,9 @@
 
     <div class="game-container-main" style="width: 1100px; margin-top: 3%;">
 
-        <audio id="my_audio" src="{{ asset('/sounds/game_background.mp3') }}" loop muted></audio>
+        <audio id="my_audio" src="{{ asset('assets/sounds/game_background.mp3') }}" loop muted></audio>
         <input type="hidden" id="game-log-id" value="{{$gsmeLogId}}">
-        
+
         <div id="notification-bar" class="notification-bar"> <i class="fa-solid fa-rotate-right"></i> Try Again!</div>
         <div id="overlay" class="overlay"></div>
         <div class="game-container">
@@ -31,17 +31,16 @@
                 <img class="sparckls" style="transform: translate(-72%, -18%); width: 34%; /* height: auto; */ pointer-events: none; margin-left: 58%; margin-top: -56%; display:none;" src="{{ asset('assets/img/rooms/room1/clip-sparkling.gif') }}" alt="">
             </div>
 
-            <!-- Clickable area for the clue -->
+            <!-- game clues -->
             <div class="clue-area " id="clue1">
-                <!-- Clue popup with input for Clue 1 -->
                 <div class="loader"></div>
-                
                 <div id="clue-popup" class="clue-popup">
                     <div class="clue-submit">
-                       <input type="text" class="digit-input" id="digit-input" />
+                        <input type="text" class="digit-input" id="digit-input" placeholder="Get the banana value" />
                     </div>
                 </div>
             </div>
+
             <div class="clue-area-door" id="clue2">
                 <div class="clue-door">
                     <div class="clue-submit-door" style="display: none;">
@@ -61,23 +60,20 @@
                     <div class="box"></div>
                     <div class="box"></div>
                     <div class="box"></div>
-                    <div class="box"></div>              
-                    <div class="color-answer" hidden > <span style="color:#d953b0;"> 8 </span> <span style="color: grey;"> 9 </span></div>      
-                    <p class="hint" style="color: white; font-size: smaller; width: 200px;"> Hint : Color count decending order</p>        
+                    <div class="box"></div>
+                    <div class="color-answer" hidden> <span style="color:#d953b0;"> 8 </span> <span style="color: grey;"> 9 </span></div>
+                    <p class="hint" style="color: white; font-size: smaller; width: 200px;"> Hint : Get the color boxes count and make decending order .</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Clue popup -->
     <div id="clue-popup" class="clue-popup">
         <p id="clue-text"></p>
         <button onclick="closeClue()">Close</button>
     </div>
 
-
     </div>
-    <!-- chs -->
     <div class="bottom-bar">
         @include('layouts.footer')
     </div>

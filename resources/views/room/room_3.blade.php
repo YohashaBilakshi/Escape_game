@@ -29,6 +29,9 @@
             <div>
                 <img class="sparckls" style="transform: translate(-50%, -18%); width: 34%; /* height: auto; */ pointer-events: none; margin-left: 58%; margin-top: -56%; display: none;" src="{{ asset('assets/img/rooms/room1/clip-sparkling.gif') }}" alt="">
             </div>
+
+            <!--  game clues  -->
+
             <div class="clue-area" id="clue1">
                 <img class="banana-canvas" src="{{ asset('assets/img/rooms/room3/banana.png') }}" alt="Room Image">
             </div>

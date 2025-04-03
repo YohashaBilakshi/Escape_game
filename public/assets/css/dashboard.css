@@ -214,8 +214,12 @@ img {
     margin-left: 30px;
 }
 .leave {
-    background-image: url(/assets/img/home/leave-btn.png);
+    background-image: url(/assets/img/home/profile-btn.png);
     margin-left: 30px;
+    width: 239px;
+    height: 92px;
+    margin-left: 40px;
+    margin-bottom: -17px;
 }
 
 .popup-overlay {
@@ -263,6 +267,10 @@ img {
     margin-top: 10px;
 }
 
+.profile{
+    width: 100px;
+    height: 100px;
+}
 .popup-content-history {
     position: relative;
     background-image: url(/assets/img/home/history.png);

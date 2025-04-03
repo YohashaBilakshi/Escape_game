@@ -92,7 +92,6 @@ $(document).ready(function () {
                         .querySelectorAll("#digit-a, #digit-b, #digit-c")
                         .forEach((el) => (el.style.display = "block"));
                     lapsSreen.style.top = "35%";
-                    // document.getElementById("lock-display").style.display = "block";
                 },
                 success: function (response) {
                     let base64String = response.question;
@@ -108,13 +107,12 @@ $(document).ready(function () {
                     lapScreen.style.backgroundSize = "contain";
                     lapScreen.style.backgroundPosition = "center";
                     lapScreen.style.backgroundRepeat = "no-repeat";
+                    $(".hint2").show();
                 },
                 error: function (xhr, status, error) {
                     toastr.error('@lang("messages.something_went_wrong")');
                 },
             });
-
-            // Hide the inputs
         } else {
             notificationBar.style.top = "10px";
             clearInputs();
@@ -143,9 +141,6 @@ $(document).ready(function () {
 
             document.querySelector(".close-room").style.display = "none";
             document.querySelector(".open-room").style.display = "block";
-            // const imagePath = "assets/img/rooms/room1/room_1_open.png";
-            // const lapScreen = document.querySelector(".game-image");
-            // lapScreen.src = imagePath;
             const passcode = document.querySelector(".passcode-view");
             const spark = document.querySelector(".sparckls");
             spark.style.display = "inline-block";
@@ -154,10 +149,8 @@ $(document).ready(function () {
             let backgroundAudio = document.getElementById("my_audio");
             if (backgroundAudio) {
                 backgroundAudio.pause();
-                backgroundAudio.currentTime = 0; // Reset audio to start
+                backgroundAudio.currentTime = 0;
             }
-            // let sparksAudio = new Audio("/assets/sounds/sparks.mp3");
-            // sparksAudio.play();
             spark.style.display = "inline-block";
             passcode.style.display = "none";
             gamestop();
@@ -175,7 +168,6 @@ function hidePopup() {
     document.getElementById("puzzel-popup").style.display = "none";
     document.getElementById("banana-canvas").style.display = "none";
     document.getElementById("passcode-view").style.display = "none";
-    // document.getElementById("lock-display").style.display = "block";
 }
 
 function hideCanvas(event) {

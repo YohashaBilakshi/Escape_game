@@ -90,10 +90,10 @@ body {
     justify-content: center;
 }
 .clue-popup input {
-    width: 45px;
+    width: 220px;
     height: 45px;
     margin: 0 14px;
-    font-size: 24px;
+    font-size: 21px;
     text-align: center;
     border: none;
     background: hsla(0, 0%, 100%, 1);

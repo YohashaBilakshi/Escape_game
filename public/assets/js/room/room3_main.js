@@ -4,6 +4,8 @@ let lapshow = false;
 $(document).ready(function () {
     bananaPuzzle();
 
+    // RIFER SOURCE : https://chatgpt.com/  - digit input
+
     $(".digit-input").on("input", function () {
         let value = $(this).val();
         if (!/^[1-9]?$/.test(value)) {
@@ -66,7 +68,7 @@ $(document).ready(function () {
             "rgb(0, 0, 0)": "black",
             "rgb(255, 255, 0)": "yellow",
         };
-        return colorMap[rgb] || "black"; // Default to black if undefined
+        return colorMap[rgb] || "black";
     }
 
     function updateSelectedOrder() {

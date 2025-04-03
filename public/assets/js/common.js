@@ -13,7 +13,9 @@ $(document).ready(function () {
         }
     });
 
+
 });
+
 
 function startCountdown(duration) {
     let timerDisplay = document.getElementById("timer");
@@ -30,9 +32,7 @@ function startCountdown(duration) {
             countdownActive = false; 
             clearInterval(countdown);
             timerDisplay.textContent = "Time's up!";
-            // alert("Time's up!");
-            // window.close();
-            // window.location.href = "/dashboard";
+            window.location.href = "/dashboard";
         }
 
         timeLeft--;
@@ -50,7 +50,12 @@ function gamestop() {
     $.ajax({
         type: "GET",
         url: `/game-complete/${gameLogedId}/${time}`,
-        success: function (response) {},
+        success: function (response) {
+            setTimeout(function () {
+                window.close();
+                location.reload();
+            }, 2000); 
+        },
         error: function (xhr, status, error) {},
     });
 }
