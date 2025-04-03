@@ -59,6 +59,7 @@
     framework => laravel
     used => php , hrml , css , js
     database => mysql
+    verion control => git (<a href="https://i.imgur.com/9zy8iGY.png"> link 1 </a> | <a href="https://i.imgur.com/AHCMPBN.png"> link 2 </a>  | <a href="https://i.imgur.com/SO5NwLD.png"> link 3 </a> )
 
     (if wanted db.sql added in database\escape_game.sql )
 
