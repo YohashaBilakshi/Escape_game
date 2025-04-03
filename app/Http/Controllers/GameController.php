@@ -56,6 +56,7 @@ class GameController extends Controller
             ->get();
 
         $user_level = GameScore::where("user_id", $user_id)->max('level');
+        // $user_level = GameScore::where("user_id", $user_id)->max('level');
         $game_list =  GameList::all();
 
         return view('dashboard', compact('game_hitory_data', 'game_list', 'user_level'));
@@ -75,14 +76,14 @@ class GameController extends Controller
             }
 
             $user_game_data =  GameScore::create([
-                'game_id' => 1,
+                'game_id' => $id,
                 'user_id' => auth()->user()->id,
                 'logged_ip' =>  $logged_ip,
                 'logged_time' => Carbon::now(),
             ]);
 
             // return view('room.room_2');
-            return view('room.room_' . $id)->with("gsmeLogId", $user_game_data->id);
+            return view('room.room_' . 3)->with("gsmeLogId", $user_game_data->id);
         } catch (\Exception $e) {
             return response()->json(['error' => 'Something went wrong', 'message' => $e->getMessage()], 500);
         }
@@ -99,7 +100,7 @@ class GameController extends Controller
             if ($game_lof_data) {
                 $game_lof_data->time_taken = $time;
                 $game_lof_data->status = 'complete';
-                $game_lof_data->level  = 2;
+                $game_lof_data->level  = $game_lof_data->game_id + 1;
                 $game_lof_data->update();
             }
             $this->deletePendingRecords($user_id);

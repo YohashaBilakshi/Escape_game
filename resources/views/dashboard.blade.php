@@ -15,16 +15,15 @@
         <img src="/assets/img/home/room_1_open.png" alt="song">
       </label>
       <label class="card" for="item-2" id="song-2">
-        <img src="/assets/img/home/room_2_h.png" alt="song">
+        <img src="/assets/img/home/{{ $user_level > 2 ? 'room_2_open' : 'room_2_h' }}.png" alt="song">
       </label>
       <label class="card" for="item-3" id="song-3">
-        <img src="/assets/img/home/room_1_h3.png" alt="song">
+        <img src="/assets/img/home/{{ $user_level > 3 ? 'room_3_open' : 'room_3_h' }}.png" alt="song">
       </label>
     </div>
     <div class="player">
       <div class="upper-part">
         <div class="info-area" id="test">
-
           @foreach ( $game_list as $games)
           <label class="song-info" id="song-info-{{ $games->id }}">
             <div class="title">{{$games->name}}</div>
@@ -92,7 +91,7 @@
 
       if (checkedRadio) {
         checkedRadioValue = checkedRadio.id;
-        if (!((checkedRadioValue === "item-3" && gameLevel < 3) || (checkedRadioValue === "item-2" && gameLevel < 2))) {
+        if (((checkedRadioValue === "item-3" && gameLevel > 2) || (checkedRadioValue === "item-2" && gameLevel > 1) || (checkedRadioValue === "item-1"))) {
           id = checkedRadioValue === "item-3" ? 3 : checkedRadioValue === "item-2" ? 2 : 1;
 
           const width = 1450;

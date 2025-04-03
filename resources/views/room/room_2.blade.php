@@ -27,6 +27,9 @@
             <img class="game-image close-room" src="{{ asset('assets/img/rooms/room2/room_2.png') }}" alt="Room Image">
             <img class="game-image open-room" src="{{ asset('assets/img/rooms/room2/room_2_open.png') }}" alt="Room Image">
 
+            <div>
+                <img class="sparckls" style="transform: translate(-72%, -18%); width: 34%; /* height: auto; */ pointer-events: none; margin-left: 58%; margin-top: -56%; display:none;" src="{{ asset('assets/img/rooms/room1/clip-sparkling.gif') }}" alt="">
+            </div>
 
             <!-- Clickable area for the clue -->
             <div class="clue-area " id="clue1">

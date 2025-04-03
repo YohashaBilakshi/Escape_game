@@ -1,13 +1,12 @@
 let answer = -1;
+let doorLockShow = false;
+
 $(document).ready(function () {
 
     let loaderElement = document.querySelector(".loader");
-    // let answer = -1;
     let bananaPzzelShow = false;
     loaderElement.style.display = "none";
 
-
-    // Clue 1: Show input when clicking
     $("#clue1").click(function () {
 
         let clueId = $(this).attr("id");
@@ -51,16 +50,11 @@ $(document).ready(function () {
         bananaPzzelShow = true;
     });
 
-    // $(".clue-submit").click(function (event) {
-    //     event.stopPropagation();
-    // });
-
     $(".digit-input").on("input", function () {
         let value = $(this).val();
         if (!/^[1-9]?$/.test(value)) {
             $(this).val(value.slice(0, 1));
         }
-        // alert(answer);
         if (value == answer) {
             $(this).css({
                 "color": "yellow",
@@ -80,22 +74,20 @@ $(document).ready(function () {
         }
     });
     
-    
-
-    // Clue 2: Show the input fields and overlay
     $("#clue2").click(function () {
-        $(".clue-submit-door").fadeIn();
-        $("#overlay").fadeIn();
+        if(!doorLockShow){
+            $(".clue-submit-door").fadeIn();
+            $("#overlay").fadeIn();
+        }
     });
 
-    
-
-    // Clue 3: Show color boxes when clicked
     $(".clue-area-wall").click(function () {
         $(".box-group").fadeIn();
         $("#overlay").fadeIn();
     });
 
+
+    // REFER SOURCE : chatgpt.com  box color changes
     const colors = ["red", "blue", "purple", "green"];
     let selectedOrder = [];
     
@@ -116,7 +108,7 @@ $(document).ready(function () {
             "rgb(128, 0, 128)": "purple",
             "rgb(0, 128, 0)": "green",
         };
-        return colorMap[rgb] || "red"; // Default to red if undefined
+        return colorMap[rgb] || "red";
     }
     
     function updateSelectedOrder() {
@@ -166,14 +158,14 @@ function unclockDoor(){
     let digit4 = $("#clue-input-door-4").val();
 
     let enteredCode = digit1 + digit2 + digit3 + digit4;
-    let correctCode = "6"+answer+"89"; // Change to your actual correct code
+    let correctCode = "6"+answer+"89"; 
 
     if (enteredCode === correctCode) {
-        // alert("Correct! The door is unlocked.");
         $(".clue-submit-door, #overlay").fadeOut();
         document.querySelector(".close-room").style.display = "none";
         document.querySelector(".open-room").style.display = "block";
-
+        document.querySelector(".sparckls").style.display = "inline";
+        doorLockShow = true;
         gamestop();
     } 
 };

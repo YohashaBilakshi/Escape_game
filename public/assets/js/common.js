@@ -40,7 +40,7 @@ function startCountdown(duration) {
 }
 
 function gamestop() {
-    alert("ddddddddddddd");
+
     clearInterval(countdown);
     // let timerDisplay = document.getElementById("timer");
     const time = $("#timer").text();
