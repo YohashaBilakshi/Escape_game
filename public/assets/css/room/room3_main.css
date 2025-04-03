@@ -46,25 +46,72 @@ body {
 
 .clue-area {
     position: absolute;
-    width: 10%;
-    height: 5%;
+    width: 46px;
+    height: 69px;
     cursor: pointer;
     background: transparent;
 }
 
 #clue1 {
-    top: 74%;
-    left: 11%;
-    width: 100px;
-    height: 57px;
+    top: 7%;
+    left: 78%;
 }
 
+.banana-canvas{
+    height: 130px;
+    /* translate: 100px 20px; */
+    Rotate: -3deg;
+    width: 223px;
+
+}
 #clue2 {
-    top: 58%;
-    left: 42%;
+    top: 46%;
+    left: 68%;
     position: absolute;
-    width: 157px;
+    width: 87px;
+    height: 109px;
+}
+
+#clue4 {
+    top: 46%;
+    left: 24%;
+    position: absolute;
+    width: 89px;
+    height: 30px;
+    cursor: pointer;
+}
+#clue5{
+    top: 55%;
+    left: 8%;
+    position: absolute;
+    width: 158px;
+    height: 85px;
+}
+.lap-screen input{
+    width: 140px;
+    height: 46px;
+    background: black;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    
+}
+.lap-sol{
     height: 62px;
+    width: 143px;
+    rotate: 6%;
+    rotate: 0deg;
+    display: none;
+}
+.clue-book {
+    width: 506px;
+    height: 310px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    display: none;
 }
 .clue-popup {
     position: absolute;
@@ -104,46 +151,55 @@ body {
     box-shadow: inset 4px 4px 8px #fff9f9, inset -4px -4px 8px #7d6161;
     transition: all 0.3s ease-in-out;
 }
-.clue-submit-door-box {
+.clue-submit-pass-box {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
     position: absolute;
     z-index: 1000;
-    top: -50px;
+    top: -159px;
     left: -103px;
-
+    background-image: url(/assets/img/rooms/room3/door_lock.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+    width: 215px;
+    
 }
-.clue-submit-door-box input {
-    width: 60px;
-    height: 60px;
-    margin-left: 3px;
-    margin-right: 5px;
+.clue-submit-pass-box input {
     text-align: center;
-    border-width: 6px;
+    /* border-width: 6px; */
     font-size: 24px;
     text-align: center;
+    margin-bottom: 31px;
+    width: 100px;
+    background: transparent;
+    border: none;
 }
-#clue-input-door-1 {
-    border-color: blue;
-}
-#clue-input-door-2 {
-    border-color: yellow;
-}
-#clue-input-door-3 {
-    border-color: pink;
-}
-#clue-input-door-4 {
-    border-color: silver;
-}
+.row-pass{
+    justify-content: center;
+    align-items: center;
+    display: flex
+;
+    flex-wrap: wrap;
 
+}
+.row-pass .btn{
+    width: 30px;
+    height: 35px;
+    margin: 5px 8px 5px 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    
+}
 .clue-area-wall {
     position: absolute;
-    width: 120px;
-    height: 250px;
-    left: 85%;
-    top: 23%;
+    width: 236px;
+    height: 107px;
+    left: 77%;
+    top: 74%;
 }
 #clue-3 .box-group {
     display: flex;
@@ -151,15 +207,31 @@ body {
     align-items: center;
     z-index: 1000;
     position: absolute;
-    transform: translate(-400px, 0px);
+    transform: translate(-397px, 8px);
     margin-left: 350px;
+    background: #577086;
 }
 
 #clue-3 .box-group .box {
-    width: 50px;
-    height: 50px;
-    background-color: rgb(0, 0, 255);
+    width: 21px;
+    height: 21px;
+    background-color: rgb(0, 0, 0);
     margin: 5px;
+    /* border-block-color: white; */
+    margin-left: 35px;
+    border: #9b9b6b;
+    border-width: 100px;
+    margin-right: 40px;
+}
+.row-color{
+    display: flex;
+    justify-items: center;
+}
+.row-color .box{
+    display: flex
+    ;
+        align-items: center;
+        justify-content: center;
 }
 /* HTML: <div class="loader"></div> */
 .loader {
@@ -182,12 +254,13 @@ body {
 }
 
 .unlock-btn {
-    width: 50px;
-    font-size: 18px;
+    width: 48px;
+    font-size: 11px;
     font-weight: bold;
-    background: linear-gradient(145deg, #00bcd4, #008ba3);
+    background: linear-gradient(145deg, #921919, #bd2255);
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
+
 }
