@@ -4,7 +4,7 @@
   <audio id="my_audio" src="assets/sounds/game_background.mp3" loop muted></audio>
   <input type="hidden" class="game_level" value="{{ $user_level }}">
 
-  <!-- REFER SOURCE : reefrontend.com  carousels -->
+  <!-- REFER SOURCE : freefrontend.com  carousels -->
 
   <div class="container">
     <input type="radio" name="slider" id="item-1" checked>

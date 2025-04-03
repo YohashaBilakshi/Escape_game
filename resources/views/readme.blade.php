@@ -50,6 +50,7 @@
    cd Escape_game
 
 3. Install:
+    create .env file from .env.example , change the database name to your database name
     composer install
     php artisan migrate
     php artisan db:seed
@@ -58,6 +59,8 @@
     framework => laravel
     used => php , hrml , css , js
     database => mysql
+
+    (if wanted db.sql added in database\escape_game.sql )
 
 4. Run the game:
    php artisan serve
@@ -75,7 +78,15 @@
                 <a href="https://ipinfo.io/json" target="_blank"> https://ipinfo.io/json </a> - to get IP address
             </li>
             <li>Session Managemenet | 2FA Verification | Authentication & Registration </li>
-            <li>History Page | Score Board</li>
+            <li>History Page | Score Board | User Game Level Managemenet</li>
+        </ul>
+
+        <h2>Reference</h2>
+        <ul>
+            <li> https://freefrontend.com/ </li>
+            <li> https://codepen.io/  </li>
+            <li> https://chatgpt.com/ </li>
+            <li> https://css-loaders.com/ </li>
         </ul>
 
         <h2>Developer</h2>

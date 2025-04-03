@@ -33,7 +33,6 @@
             <div class="showPasscode"></div>  <!-- Clickable area door lock -->
         </div>
 
-        <!-- passcode -->
         <div id="passcode-view" class="passcode-view">
             <div class="lock-display" id="lock-display">
                 <input type="number" class="digit-input" maxlength="1" id="digit-a" min="0" placeholder="🍏" oninput="moveNext(this, 'digit-2')" />
@@ -43,7 +42,8 @@
             <button class="unlock-btn"> 🔒Enter</button>
         </div>
 
-        <!-- banana API image clue 2 -->
+        <!-- game clues -->
+         
         <div id="banana-canvas" class="banana-canvas">
             <!-- RIFER SOURCE : https://css-loaders.com/  loader-->
             <div class="loader"></div>
@@ -57,12 +57,12 @@
                 </div>
             </div>
             <p class="hint2" style="color: white; margin-left: 496px; display: none;"> Get the banana value and find the place to apply that .  </p>
-             <!-- REFER SOURCE : reefrontend.com  keyboard designs  -->
+             <!-- REFER SOURCE : freefrontend.com  keyboard designs  -->
             <div class="key-board" id="key-board">
                 @include('keyboard')
             </div>
         </div>
-
+        <!-- envelop clue 1 -->
         <div id="taki-overlay" class="taki-overlay">
             <span class="taki-text">TAKI</span>
         </div>
