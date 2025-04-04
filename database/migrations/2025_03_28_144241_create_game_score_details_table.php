@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger("game_id");
-            $table->decimal("time_taken", 8, 2)->default(0.00);
+            $table->time("time_taken")->default(0.00);
             $table->enum('status', ['pending', 'complete']);
             $table->tinyInteger('level')->default(1);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
