@@ -57,7 +57,7 @@
    
     php version => "^8.0.2"
     framework => laravel
-    used => php , hrml , css , js
+    used => php , html , css , js
     database => mysql
     verion control => git (<a href="https://i.imgur.com/9zy8iGY.png"> link 1 </a> | <a href="https://i.imgur.com/AHCMPBN.png"> link 2 </a>  | <a href="https://i.imgur.com/SO5NwLD.png"> link 3 </a> )
 
