@@ -67,7 +67,7 @@
    php artisan serve
 
    login credentials
-        - email => yoha@gamail.com
+        - email => yoha@example.com
         - password => password
 
         </pre>
