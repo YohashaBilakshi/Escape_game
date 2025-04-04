@@ -61,7 +61,7 @@
         <fieldset>
           <legend>Please, enter your email, password and password confirmation for sign up.</legend>
           <div class="input-block">
-            <label for="signup-email"><img src="/assets/img/email_text.png" alt=""></label>
+            <label for="signup-email"><img src="/assets/img/name_txt.png" alt=""></label>
             <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
           </div>
           <div class="input-block">
