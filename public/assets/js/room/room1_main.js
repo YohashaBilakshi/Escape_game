@@ -140,7 +140,7 @@ $(document).ready(function () {
         pass = `${pass}${answer}`;
         let finalPass = Number(pass);
 
-        // if (code == finalPass) {
+        if (code == finalPass) {
 
             document.querySelector(".close-room").style.display = "none";
             document.querySelector(".open-room").style.display = "block";
@@ -157,7 +157,7 @@ $(document).ready(function () {
             spark.style.display = "inline-block";
             passcode.style.display = "none";
             gamestop(); //  call to common js
-        // }
+        }
     });
 });
 
