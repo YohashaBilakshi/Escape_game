@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2025 at 09:04 PM
+-- Generation Time: Apr 04, 2025 at 08:20 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -56,9 +56,9 @@ CREATE TABLE `game_list` (
 --
 
 INSERT INTO `game_list` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'Room 1', 'First Level', '2025-04-03 13:33:53', '2025-04-03 13:33:53'),
-(2, 'Room 2', 'Second Level', '2025-04-03 13:33:53', '2025-04-03 13:33:53'),
-(3, 'Room 3', 'Third Level', '2025-04-03 13:33:53', '2025-04-03 13:33:53');
+(1, 'Room 1', 'First Level', '2025-04-04 00:50:11', '2025-04-04 00:50:11'),
+(2, 'Room 2', 'Second Level', '2025-04-04 00:50:11', '2025-04-04 00:50:11'),
+(3, 'Room 3', 'Third Level', '2025-04-04 00:50:11', '2025-04-04 00:50:11');
 
 -- --------------------------------------------------------
 
@@ -70,7 +70,7 @@ CREATE TABLE `game_score_details` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `game_id` bigint(20) UNSIGNED NOT NULL,
-  `time_taken` decimal(8,2) NOT NULL DEFAULT 0.00,
+  `time_taken` time NOT NULL DEFAULT '00:00:00',
   `status` enum('pending','complete') NOT NULL,
   `level` tinyint(4) NOT NULL DEFAULT 1,
   `logged_ip` varchar(255) DEFAULT NULL,
@@ -179,7 +179,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'Yohasha', 'yoha@example.com', '2025-04-03 13:33:53', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NULL, NULL, NULL, 'YpaSqUdkX0', NULL, NULL, '2025-04-03 13:33:53', '2025-04-03 13:33:53');
+(1, 'Yohasha', 'yoha@example.com', '2025-04-04 00:50:11', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NULL, NULL, NULL, 'BwySacXKPE', NULL, NULL, '2025-04-04 00:50:11', '2025-04-04 00:50:11');
 
 --
 -- Indexes for dumped tables
